@@ -1,0 +1,8 @@
+#wrapper {
+    max-width: 100%;
+    height: calc( 100% - 160px );
+    display: block;
+    grid-template-rows: auto 1fr auto;
+    overflow: auto;
+}
+
