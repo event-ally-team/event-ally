@@ -1,7 +1,7 @@
 DROP DATABASE IF EXISTS events_db;
 CREATE DATABASE events_db;
 
-CREATE TABLE Users (
+CREATE TABLE users (
     user_id INT PRIMARY KEY NOT NULL,
     user_name VARCHAR(100) NOT NULL,
     email_adr varchar(100) NOT NULL,
