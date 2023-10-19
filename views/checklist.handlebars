@@ -1,0 +1,23 @@
+<form action="/" method="post">
+    <ul>
+        {{#each items}}
+        <li>
+            <input type="text" name="description" value="{{this.description}}">
+            <select name="status">
+    <option value="New" {{#equal this.status "New"}}selected{{/equal}}>New</option>
+    <option value="In Progress" {{#equal this.status "In Progress"}}selected{{/equal}}>In Progress</option>
+    <option value="Pending" {{#equal this.status "Pending"}}selected{{/equal}}>Pending</option>
+    <option value="Priority" {{#equal this.status "Priority"}}selected{{/equal}}>Priority</option>
+    <option value="Cancelled" {{#equal this.status "Cancelled"}}selected{{/equal}}>Cancelled</option>
+    <option value="Done" {{#equal this.status "Done"}}selected{{/equal}}>Done</option>
+</select>
+
+        </li>
+        {{/each}}
+    </ul>
+    <button type="submit">Save</button>
+</form>
+<form action="/add" method="post">
+    <input type="text" name="newTask" placeholder="Add a new task">
+    <button type="submit">Add</button>
+</form>
