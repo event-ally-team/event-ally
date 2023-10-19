@@ -1,23 +1,37 @@
-<form action="/" method="post">
-    <ul>
-        {{#each items}}
-        <li>
-            <input type="text" name="description" value="{{this.description}}">
-            <select name="status">
-    <option value="New" {{#equal this.status "New"}}selected{{/equal}}>New</option>
-    <option value="In Progress" {{#equal this.status "In Progress"}}selected{{/equal}}>In Progress</option>
-    <option value="Pending" {{#equal this.status "Pending"}}selected{{/equal}}>Pending</option>
-    <option value="Priority" {{#equal this.status "Priority"}}selected{{/equal}}>Priority</option>
-    <option value="Cancelled" {{#equal this.status "Cancelled"}}selected{{/equal}}>Cancelled</option>
-    <option value="Done" {{#equal this.status "Done"}}selected{{/equal}}>Done</option>
-</select>
+<head>
+  <title>Task Organizer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
 
+<body>
+  <h1 class="taskOrganizer">Task Organizer</h1>
+  <main class="taskMainForm">
+    <form class="taskForm" action="/" method="post">
+      <ul>
+        {{#each items}}
+        <li class="task">
+          <input class="taskStatus" type="text" name="description" value="{{this.description}}">
+          <select class="taskSelectStatus" name="status">
+            <option value="New" {{#equal this.status "New"}}selected{{/equal}}>New</option>
+            <option value="In Progress" {{#equal this.status "In Progress"}}selected{{/equal}}>In Progress</option>
+            <option value="Pending" {{#equal this.status "Pending"}}selected{{/equal}}>Pending</option>
+            <option value="Priority" {{#equal this.status "Priority"}}selected{{/equal}}>Priority</option>
+            <option value="Cancelled" {{#equal this.status "Cancelled"}}selected{{/equal}}>Cancelled</option>
+            <option value="Done" {{#equal this.status "Done"}}selected{{/equal}}>Done</option>
+          </select>
+          <button class="taskDeleteBtn" data-task-index="{{@index}}">
+            <i class="fas fa-trash-alt"></i>
+          </button>
         </li>
         {{/each}}
-    </ul>
-    <button type="submit">Save</button>
-</form>
-<form action="/add" method="post">
-    <input type="text" name="newTask" placeholder="Add a new task">
-    <button type="submit">Add</button>
-</form>
+      </ul>
+      <button class="taskSaveBtn" type="submit">Save</button>
+    </form>
+    <form class="addForm" action="/add" method="post">
+      <input class="taskNewTask" type="text" name="newTask" placeholder="Add a new task">
+      <button class="taskAddBtn" type="submit">Add</button>
+    </form>
+  </main>
+</body>
+
+</html>
