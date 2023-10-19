@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #wrapper {
     max-width: 100%;
     height: calc( 100% - 160px );
@@ -7,7 +6,6 @@
     overflow: auto;
 }
 
-=======
 body {
   /*font-family: verdana;*/
   font-family: 'Roboto', sans-serif;
@@ -116,5 +114,6 @@ input[type=text]
 
 .textleft {
   text-align: left;
+
 }
->>>>>>> main
+
