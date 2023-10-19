@@ -1,3 +1,11 @@
+#wrapper {
+    max-width: 100%;
+    height: calc( 100% - 160px );
+    display: block;
+    grid-template-rows: auto 1fr auto;
+    overflow: auto;
+}
+
 body {
   /*font-family: verdana;*/
   font-family: 'Roboto', sans-serif;
@@ -106,4 +114,6 @@ input[type=text]
 
 .textleft {
   text-align: left;
+
 }
+
