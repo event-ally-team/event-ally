@@ -16,7 +16,7 @@ users.init(
           unique: true,
         },
         user_name: {
-          type: DATATypes.STRING,
+          type: DataTypes.STRING,
           allowNull: false,
           unique: true,
         },
@@ -159,19 +159,19 @@ module.exports = comments;
 
 //The following  will establish the relationship between the tables
 /* Users */ 
-users.hasmany(events, { foreginKey: "host_id"});
+users.hasMany(events, { foreginKey: "host_id"});
 
-users.hasmany(comments,{foreginKey: "user_id"});
+users.hasMany(comments,{foreginKey: "user_id"});
 
-users.hasmany(RSVPs, {foreginKey: "user_id"});
+users.hasMany(RSVPs, {foreginKey: "user_id"});
 //Events
-events.hasmany(RSVPs, {foreginKey: "event_id"});
+events.hasMany(RSVPs, {foreginKey: "event_id"});
 
 events.belongsTo(users, {foreginKey: "host_id"});
 
-events.hasmany(comments, {foreginKey: "event_id"});
+events.hasMany(comments, {foreginKey: "event_id"});
 
-events.hasmany(checklist, {foreginKey: "event_id"});
+events.hasMany(checklist, {foreginKey: "event_id"});
 /* RSVPS */
 RSVPs.belongsTo(events, {foreginKey: "event_id"});
 
@@ -185,4 +185,6 @@ checklist.belongsTo(events, {foreginKey: "event_id"});
 comments.belongsTo(events, { foreignKey: 'event_id' });
 
 comments.belongsTo(users, { foreignKey: 'user_id' });
+
+
 
