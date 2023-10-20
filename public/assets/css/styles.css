@@ -184,3 +184,79 @@ input[type=text]
 .task .taskDeleteBtn i {
   color: #ff0000; /* Delete Button icon color */
 }
+
+.introduction-section {
+    display: flex;
+    flex-direction: row;
+    flex: 1 0 1;
+    justify-content: center;
+
+}
+
+.introduction-article {
+  font-family: "Roboto", sans-serif;
+  padding: 40px;
+  text-align: center;
+  justify-content: center;
+  object-fit: fill;
+  color: var(--dark-color);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  max-width: 680px;
+}
+
+#page-footer {
+    background-color: var(--light-color);
+    padding: 20px;
+    height: 80px;
+}
+
+#wrapper {
+    max-width: 100%;
+    height: calc( 100% - 160px );
+    display: block;
+    grid-template-rows: auto 1fr auto;
+    overflow: auto;
+}
+
+#title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+#title-centered-container {
+  padding-top: 22px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.introduction-article-event {
+  font-family: "Roboto", sans-serif;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-right: 40px;
+  padding-left: 40px;
+  text-align: center;
+  justify-content: center;
+  object-fit: fill;
+  color: var(--dark-color);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  width: 100%;
+}
+
+#event-list {
+  display: flex;
+  align-items: center;
+  align-content: flex-start;
+  gap: 10px;
+  align-self: center;
+  flex-wrap: wrap;
+  overflow: auto;
+}
