@@ -1,41 +1,45 @@
-const {DataTypes, Model} = require("sequelize");
-const sequelize = require("../config/connection")
+const { DataTypes, Model } = require("sequelize");
+const sequelize = require("../config/connection");
 
-class users extends Model {}
-users.init(
-    {
-        user_id: {
-            primaryKey: true,
-            allowNull: false,
-            autoIncrement: true,
-            type: DataTypes.INTEGER
-        },
-        email_adr: {
-          allowNull: false,
-          type: DataTypes.STRING,
-          unique: true,
-        },
-        user_name: {
-          type: DataTypes.STRING,
-          allowNull: false,
-          unique: true,
-        },
-        passwords: {
-            allowNull: false,
-            type: DataTypes.STRING,
-        },
+/* If another model or table is created modify changes here */
+class User extends Model {
+}
+
+User.init(
+  {
+    user_id: {
+      primaryKey: true,
+      allowNull: false,
+      type: DataTypes.INTEGER,
     },
-        {
-        sequelize,
-        modelName: 'users',
-        }
+    email_adr: {
+      allowNull: false,
+      type: DataTypes.STRING,
+      unique: true,
+    },
+    user_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
+    passwords: {
+      allowNull: false,
+      type: DataTypes.STRING,
+    },
+  },
+  {
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'users',
+  }
 );
 
-module.exports = users;
+class Event extends Model {
+}
 
-class events extends Model {}
-
-events.init(
+Event.init(
   {
     event_id: {
       type: DataTypes.INTEGER,
@@ -64,16 +68,18 @@ events.init(
   {
     sequelize,
     modelName: 'events',
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
   }
 );
 
-module.exports = events;
+class RSVP extends Model {
+}
 
-class RSVPs extends Model {}
-
-RSVPs.init(
+RSVP.init(
   {
-    rsvpid: {
+    rsvp_id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
     },
@@ -85,7 +91,7 @@ RSVPs.init(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    Status: {
+    status: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -96,15 +102,16 @@ RSVPs.init(
   {
     sequelize,
     modelName: 'RSVPs',
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
   }
 );
 
-module.exports = RSVPs;
+class Checklist extends Model {
+}
 
-
-class checklist extends Model {}
-
-checklist.init(
+Checklist.init(
   {
     task_id: {
       type: DataTypes.INTEGER,
@@ -124,14 +131,16 @@ checklist.init(
   {
     sequelize,
     modelName: 'checklist',
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
   }
 );
 
-module.exports = checklist;
+class Comment extends Model {
+}
 
-class comments extends Model {}
-
-comments.init(
+Comment.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -152,39 +161,34 @@ comments.init(
   {
     sequelize,
     modelName: 'comments',
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
   }
 );
 
-module.exports = comments;
-
-//The following  will establish the relationship between the tables
-/* Users */ 
-users.hasMany(events, { foreginKey: "host_id"});
-
-users.hasMany(comments,{foreginKey: "user_id"});
-
-users.hasMany(RSVPs, {foreginKey: "user_id"});
-//Events
-events.hasMany(RSVPs, {foreginKey: "event_id"});
-
-events.belongsTo(users, {foreginKey: "host_id"});
-
-events.hasMany(comments, {foreginKey: "event_id"});
-
-events.hasMany(checklist, {foreginKey: "event_id"});
-/* RSVPS */
-RSVPs.belongsTo(events, {foreginKey: "event_id"});
-
-RSVPs.belongsTo(users, {foreginKey: "user_id"});
-
-
-//Checklists
-checklist.belongsTo(events, {foreginKey: "event_id"});
-
-/*Comments*/
-comments.belongsTo(events, { foreignKey: 'event_id' });
-
-comments.belongsTo(users, { foreignKey: 'user_id' });
+/* Estbalishes the relationships between the DB 
+with their foregin keys if another
+relationship needs to be estbalished when coding add code to the following
+*/
+//Users for the "users" table and so om
+User.hasMany(Event, { foreignKey: "host_id" });
+User.hasMany(Comment, { foreignKey: "user_id" });
+User.hasMany(RSVP, { foreignKey: "user_id" });
+//Events for the "events" table
+Event.hasMany(RSVP, { foreignKey: "event_id" });
+Event.belongsTo(User, { foreignKey: "host_id" });
+Event.hasMany(Comment, { foreignKey: "event_id" });
+Event.hasMany(Checklist, { foreignKey: "event_id" });
+//Comments for the "comments" table
+Comment.belongsTo(Event,{foreignKey:"event_id"});
+Comment.belongsTo(User,{foreignKey:"user_id"});
+//RSVP for the "RSVPs" table
+RSVP.belongsTo(Event,{foreignKey:"event_id"});
+RSVP.belongsTo(User,{foreignKey:"user_id"});
+//for the "checklist" table
+Checklist.belongsTo(Event,{foreignKey:"event_id"});
 
 
+module.exports = {User, Event, RSVP, Checklist,Comment,};
 
