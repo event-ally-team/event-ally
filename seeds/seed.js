@@ -1,7 +1,7 @@
 const sequelize = require('../config/connection');
 const {User,Event,RSVP,Checklist,Comment } = require('../models/index');
 
-
+//Change the data or add accordinglly based on your test and asure it matches with the database tables
 const UserJSON = [
   {
     user_id: 3,
