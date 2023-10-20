@@ -233,3 +233,67 @@ span.eventAlly {
   margin: 25px 0;
   text-align: left;
 }
+
+/* Label styles */
+.eventlabel {
+  color: #343a40;
+  font-size: 17px;
+  font-weight: bold;
+  display: block;
+  padding: 15px;
+}
+
+/* Input styles */
+input.signInput {
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  background-color: white;
+  border: 1px solid #343a40;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  color: #343a40;
+  font-size: 17px;
+}
+
+input.signInput:hover {
+  border: 1px solid #1980e7;
+}
+
+/* Button styles */
+.signInBtn,
+.signupBtn {
+  width: 108%;
+  height: 7vh;
+  padding: 12px;
+  margin-top: 5%;
+  border: none;
+  border-radius: 10px;
+  background-color: #08203a;
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.signupBtn:hover,
+.signInBtn:hover {
+  background-color: #343a40;
+}
+
+/* Link styles */
+.signInLink,
+.signUpLink {
+  text-align: center;
+  display: block;
+  color: #08203a;
+  text-decoration: none;
+  margin-top: 5%;
+}
+
+.signInLink:hover,
+.signUpLink:hover {
+  text-decoration: underline;
+  color: #08203a;
+}
