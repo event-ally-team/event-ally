@@ -184,3 +184,26 @@ input[type=text]
 .task .taskDeleteBtn i {
   color: #ff0000; /* Delete Button icon color */
 }
+
+  /*Style for the sign in and sign up section*/
+
+  /*style for the container and content section*/
+  .userContainer {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 125vh;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Content styles */
+  .userContent {
+    text-align: center;
+    background-color: white;
+    border-radius: 15px;
+    padding: 5%;
+    max-width: 150vw;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+  }
+  
