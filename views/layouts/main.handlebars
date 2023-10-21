@@ -29,7 +29,7 @@
   </head>
 
   <body>
-    <div class='flex-column justify-space-around'>
+    
       <header class='display-flex justify-space-between align-center p-2'>
         <a>
           <img
@@ -48,7 +48,8 @@
 
       <div id='wrapper'>
 
-        <main class='container container-fluid mt-5'>
+
+        <main class='introduction-section'>
           <!-- Render the sub layout -->
           {{{body}}}
         </main>
@@ -65,7 +66,7 @@
           </p>
         </div>
       </footer>
-    </div>
+    
 
     <!-- Render script for logged in users only -->
     {{#if logged_in}}
