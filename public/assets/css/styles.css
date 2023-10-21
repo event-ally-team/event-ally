@@ -1,9 +1,9 @@
 #wrapper {
-    max-width: 100%;
-    height: calc( 100% - 160px );
-    display: block;
-    grid-template-rows: auto 1fr auto;
-    overflow: auto;
+  max-width: 100%;
+  height: calc(100% - 160px);
+  display: block;
+  grid-template-rows: auto 1fr auto;
+  overflow: auto;
 }
 
 body {
@@ -14,9 +14,9 @@ body {
 #container {
   border: 1px solid grey;
   border-radius: 3px;
-  color: #EFEFEF;
+  color: #efefef;
   background-color: #303437;
-  opacity: .8;
+  opacity: 0.8;
   box-shadow: 4px 4px 10px grey;
   width: 250px;
   padding: 10px;
@@ -26,7 +26,7 @@ body {
 
 #eventslink {
   font-size: 14px;
-  color: #1E90FF;
+  color: #1e90ff;
   cursor: pointer;
 }
 
@@ -44,7 +44,7 @@ body {
 #month {
   padding: 5px;
   width: 200px;
-  float:left;
+  float: left;
 }
 
 #submonth {
@@ -62,7 +62,7 @@ body {
 }
 
 .highlightday {
-  color: #CC5500;
+  color: #cc5500;
   font-weight: bold;
 }
 
@@ -98,11 +98,10 @@ body {
 }
 
 .detitle {
- font-size: 14px;
+  font-size: 14px;
 }
 
-input[type=text]
-{
+input[type='text'] {
   width: 202px;
 }
 
@@ -114,9 +113,7 @@ input[type=text]
 
 .textleft {
   text-align: left;
-
 }
-
 
 .taskOrganizer {
   text-align: center;
@@ -186,6 +183,48 @@ input[type=text]
 }
 
 
+.introduction-section-dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1 0 0;
+}
+
+.introduction-section-new-event {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1 0 0;
+}
+
+.introduction-article {
+  font-family: 'Roboto', sans-serif;
+  padding: 40px;
+  text-align: center;
+  justify-content: center;
+  object-fit: fill;
+  color: var(--dark-color);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  max-width: 680px;
+}
+
+#page-footer {
+  background-color: var(--light-color);
+  padding: 20px;
+  height: 80px;
+}
+
+#wrapper {
+  max-width: 100%;
+  height: calc(100% - 160px);
+  display: block;
+  grid-template-rows: auto 1fr auto;
+  overflow: auto;
+
+
   /*Style for the sign in and sign up section*/
 
   /*style for the container and content section*/
@@ -242,6 +281,7 @@ span.eventAlly {
   font-weight: bold;
   display: block;
   padding: 15px;
+
 }
 
 /* Input styles */
@@ -283,9 +323,18 @@ input.signInput:hover {
   background-color: #343a40;
 }
 
+
+.introduction-article-event {
+  font-family: 'Roboto', sans-serif;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-right: 40px;
+  padding-left: 40px;
+
 /* Link styles */
 .signInLink,
 .signUpLink {
+
   text-align: center;
   display: block;
   color: #08203a;
@@ -293,8 +342,142 @@ input.signInput:hover {
   margin-top: 5%;
 }
 
+
+#event-list {
+  display: flex;
+  align-items: center;
+  align-content: flex-start;
+  gap: 10px;
+  align-self: center;
+  flex-wrap: wrap;
+  overflow: auto;
+  min-width: 100%;
+}
+
+.introduction-article-new-event {
+  font-family: 'Roboto', sans-serif;
+  padding: 40px;
+  text-align: center;
+  justify-content: center;
+  object-fit: fill;
+  color: var(--dark-color);
+  display: flex;
+  flex-direction: column;
+
+  gap: 32px;
+  max-width: 680px;
+}
+
+/* Figma assisted CSS START */
+
+.dashboard-card {
+  display: flex;
+  width: 360px;
+  flex-direction: column;
+  align-items: flex-start;
+
+  border-radius: 20px;
+  border: 1px solid #ececec;
+  background: var(--white, #fff);
+  padding: 32px;
+}
+
+.dashboard-card-header {
+  display: flex;
+  gap: 15px;
+  align-self: stretch;
+  justify-content: center;
+  width: 296px;
+  padding-bottom: 24px;
+}
+
+.dashboard-card-footer {
+  display: flex;
+  padding: 24px;
+  gap: 15px;
+  align-self: stretch;
+  justify-content: left;
+  width: 296px;
+
+  color: var(--muted-color, #78858f);
+
+  /* Body/body1 */
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 23px; /* 143.75% */
+  letter-spacing: 0.5px;
+}
+
+.dashboard-card-header-media {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1 0 0;
+  align-self: stretch;
+}
+
+.dashboard-card-header-title {
+  /* Headline/h5 */
+
+  font-family: Roboto;
+  font-size: 16px;
+
+  align-items: center;
+
+  height: 32px;
+  line-height: 32px;
+  text-align: left;
+
+  min-width: 200px;
+}
+
+.dashboard-card-header-cta-group {
+  display: flex;
+  align-items: left;
+  gap: 10px;
+  flex: 1 0 0;
+  align-self: stretch;
+  flex-direction: row;
+}
+.dashboard-card-header-cta {
+  width: 32px;
+  height: 32px;
+}
+.check-button {
+  width: 32px;
+  height: 32px;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+.delete-button {
+  width: 32px;
+  height: 32px;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+.event-type-text {
+
+
+  text-align: left;
+
+}
+
 .signInLink:hover,
 .signUpLink:hover {
   text-decoration: underline;
   color: #08203a;
 }
+
