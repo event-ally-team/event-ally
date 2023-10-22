@@ -1,37 +1,30 @@
-<head>
-  <title>Task Organizer</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-</head>
-
-<body>
-  <h1 class="taskOrganizer">Task Organizer</h1>
-  <main class="taskMainForm">
-    <form class="taskForm" action="/" method="post">
-      <ul>
-        {{#each items}}
-        <li class="task">
-          <input class="taskStatus" type="text" name="description" value="{{this.description}}">
-          <select class="taskSelectStatus" name="status">
-            <option value="New" {{#equal this.status "New"}}selected{{/equal}}>New</option>
-            <option value="In Progress" {{#equal this.status "In Progress"}}selected{{/equal}}>In Progress</option>
-            <option value="Pending" {{#equal this.status "Pending"}}selected{{/equal}}>Pending</option>
-            <option value="Priority" {{#equal this.status "Priority"}}selected{{/equal}}>Priority</option>
-            <option value="Cancelled" {{#equal this.status "Cancelled"}}selected{{/equal}}>Cancelled</option>
-            <option value="Done" {{#equal this.status "Done"}}selected{{/equal}}>Done</option>
-          </select>
-          <button class="taskDeleteBtn" data-task-index="{{@index}}">
-            <i class="fas fa-trash-alt"></i>
-          </button>
-        </li>
-        {{/each}}
-      </ul>
-      <button class="taskSaveBtn" type="submit">Save</button>
-    </form>
-    <form class="addForm" action="/add" method="post">
-      <input class="taskNewTask" type="text" name="newTask" placeholder="Add a new task">
-      <button class="taskAddBtn" type="submit">Add</button>
-    </form>
-  </main>
-</body>
-
-</html>
+    <section>
+    <div class="checklistDashboard">
+      <div class="topButtons">
+        <button class="dashboardButton">
+          <i class="fas fa-chevron-left"></i> Dashboard
+        </button>
+      </div>
+      <div class="checklistContainer">
+        <h1 class="event-name">Event Name checklist</h1>
+        <div class="newItemContainer">
+          <button class="newItemButton">New Item</button>
+        </div>
+        <ul class="checklist" id="checklist">
+          <!-- JavaScript will add the checklist cards here -->
+        </ul>
+      </div>
+    </div>
+    <div class="popup-modal" id="newItemModal">
+      <div class="popup-content">
+        <span class="close" id="closePopup">&times;</span>
+        <h2>Add New Item</h2>
+        <label id= "newTitle"  "newItemTitle">Title:</label>
+        <input type="text" id="newItemTitle" required />
+        <label id="newDescription" for="newItemDescription">Description:</label>
+        <textarea id="newItemDescription" required></textarea>
+        <button id="addNewItemButton">Add New Item</button>
+      </div>
+    </div>
+    </section>
+    <script src="./public/js/checklist.js"></script>
