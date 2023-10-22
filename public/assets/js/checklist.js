@@ -77,6 +77,21 @@ document.addEventListener("DOMContentLoaded", function () {
     checklist.appendChild(card);
   }
 
+  // Event listener for the Dashboard button
+  dashboardButton.addEventListener("click", function () {
+    window.location.href = "main_dashboard.html"; // waiting for the dashboard
+  });
+
+  // Event listener for the new item button to show the pop-up
+  newItemButton.addEventListener("click", function () {
+    newItemModal.style.display = "flex";
+  });
+
+  // Event listener to close the pop-up
+  closePopup.addEventListener("click", function () {
+    newItemModal.style.display = "none";
+  });
+
 
 
 
