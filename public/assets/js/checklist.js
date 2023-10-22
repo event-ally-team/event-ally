@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const newItemTitle = document.getElementById("newItemTitle");
   const newItemDescription = document.getElementById("newItemDescription");
 
+  // Function to delete the item
   function handleDeleteCard(event) {
     const card = event.target.closest(".card");
     if (card) {
@@ -15,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // Function to toggle the completion status of a checklist item.
   function toggleChecklistItem(event) {
     const card = event.target.closest(".card");
     if (card) {
@@ -37,6 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  //function for the undo button
   function handleUndoClick(event) {
     const undoButton = event.target;
     const card = undoButton.closest(".card");
@@ -46,6 +49,34 @@ document.addEventListener("DOMContentLoaded", function () {
       undoButton.style.display = "none";
     }
   }
+
+  // Function to create a new checklist  
+  function createCard(title, description) {
+    const card = document.createElement("li");
+    card.className = "card";
+
+    card.innerHTML = `
+      <span class="checklistTitle">${title}</span>
+      <p class="checklistDescription">${description}</p>
+      <span class="checklistCheckIcon"><i class="far fa-check-circle"></i></span>
+      <span class="checklistDeleteIcon"><i class="fas fa-trash-alt"></i></span>
+      <span class="undoButton" style="display: none"><i class="fas fa-undo"></i></span>
+    `;
+
+    const checkIcon = card.querySelector(".checklistCheckIcon");
+    checkIcon.addEventListener("click", toggleChecklistItem);
+
+    const deleteIcon = card.querySelector(".checklistDeleteIcon");
+    deleteIcon.addEventListener("click", handleDeleteCard);
+
+    const undoButton = card.querySelector(".undoButton");
+    if (undoButton) {
+      undoButton.addEventListener("click", handleUndoClick);
+    }
+
+    checklist.appendChild(card);
+  }
+
 
 
 
