@@ -1,23 +1,29 @@
-const deleteButtons = document.querySelectorAll(".taskDeleteBtn");
-//function for the delete button and remove the task from the list
-deleteButtons.forEach((deleteButton) => {
-  deleteButton.addEventListener("click", (event) => {
-    const taskIndex = event.target.getAttribute("data-task-index");
-    if (taskIndex !== null) {
-      // Send a request to the server to delete the task
-      fetch(`/delete/${taskIndex}`, {
-        method: "POST",
-      })
-        .then((response) => {
-          if (response.ok) {
-            location.reload();
-          } else {
-            console.error("Failed to delete task.");
-          }
-        })
-        .catch((error) => {
-          console.error(error);
-        });
+document.addEventListener("DOMContentLoaded", function () {
+  const checklist = document.getElementById("checklist");
+  const dashboardButton = document.querySelector(".dashboardButton");
+  const newItemButton = document.querySelector(".newItemButton");
+  const newItemModal = document.getElementById("newItemModal");
+  const closePopup = document.getElementById("closePopup");
+  const addNewItemButton = document.getElementById("addNewItemButton");
+  const newItemTitle = document.getElementById("newItemTitle");
+  const newItemDescription = document.getElementById("newItemDescription");
+
+  function handleDeleteCard(event) {
+    const card = event.target.closest(".card");
+    if (card) {
+      card.remove();
     }
-  });
+  }
+
+
+
+
+
+
+
+
+
+
+
+  
 });
