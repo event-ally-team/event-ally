@@ -598,3 +598,50 @@ button {
   margin: 10px 0;
   width: 25vw;
 }
+
+#newTitle,
+#newDescription {
+  font-size: 17px;
+  font-weight: bold;
+  text-align: left;
+}
+
+#newItemTitle,
+#newItemDescription {
+  display: block;
+  margin: 10px 0;
+  width: 25vw;
+  font-size: 14px;
+}
+
+#newItemTitle {
+  height: 4vh;
+}
+
+#newItemDescription {
+  height: 12vh;
+}
+
+#newItemTitle:hover,
+#newItemDescription:hover {
+  border: 2px solid #005f7f;
+}
+
+#addNewItemButton {
+  background-color: #08203a;
+  color: white;
+  width: 25vw;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#addNewItemButton:hover {
+  background-color: #005f7f;
+}
+/* When the user clicks the check icon, the green backgroud will appear aa a mark that the item has been completed. */
+.completed {
+  background-color: #2ecc71;
+  color: #fff;
+}
