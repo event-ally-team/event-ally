@@ -4,7 +4,6 @@ const eventRoutes = require('./eventRoutes');
 const commentRoutes = require('./commentRoutes');
 const RSVPs = require('./RSVPRoutes');
 const checklist = require('./checklistRoutes');
-const { User, Event, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 

@@ -12,7 +12,11 @@ const withAuth = require('../../utils/auth');
 router.post('/login', async (req, res) => {
 
 try{
-const RSVPData = await RSVPs.findOne({ where: { email: req.body.email } });
+const RSVPData = await RSVPs.findOne({ where: { email: req.body.email,
+password: req.body.password
+
+
+} });
 
 } catch (err) {
     res.status(400).json(err);
