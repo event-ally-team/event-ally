@@ -37,7 +37,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-
+  function handleUndoClick(event) {
+    const undoButton = event.target;
+    const card = undoButton.closest(".card");
+    if (card) {
+      card.classList.remove("completed");
+      card.querySelector(".checklistCheckIcon").style.display = "inline-block";
+      undoButton.style.display = "none";
+    }
+  }
 
 
 
