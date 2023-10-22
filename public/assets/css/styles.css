@@ -518,3 +518,38 @@ input.signInput:hover {
   overflow-y: auto;
 }
 
+.checklistTitle {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.checklistDescription {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.checklistDeleteIcon {
+  color: #e74c3c;
+  cursor: pointer;
+  position: absolute;
+  width: 10%;
+  top: 10px;
+  right: 30px;
+}
+
+.checklistCheckIcon {
+  color: #2ecc71;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.undoButton {
+  color: black;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
