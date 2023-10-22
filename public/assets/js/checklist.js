@@ -15,6 +15,27 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  function toggleChecklistItem(event) {
+    const card = event.target.closest(".card");
+    if (card) {
+      if (card.classList.contains("completed")) {
+        card.classList.remove("completed");
+        card.querySelector(".checklistCheckIcon").style.display =
+          "inline-block";
+        const undoButton = card.querySelector(".undoButton");
+        if (undoButton) {
+          undoButton.style.display = "none";
+        }
+      } else {
+        card.classList.add("completed");
+        card.querySelector(".checklistCheckIcon").style.display = "none";
+        const undoButton = card.querySelector(".undoButton");
+        if (undoButton) {
+          undoButton.style.display = "inline-block";
+        }
+      }
+    }
+  }
 
 
 
@@ -25,5 +46,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  
+
 });
