@@ -92,6 +92,19 @@ document.addEventListener("DOMContentLoaded", function () {
     newItemModal.style.display = "none";
   });
 
+    // Event listener to add a new item and close the pop-up
+    addNewItemButton.addEventListener("click", function () {
+      const title = newItemTitle.value;
+      const description = newItemDescription.value;
+  
+      if (title && description) {
+        createCard(title, description);
+  
+        newItemTitle.value = "";
+        newItemDescription.value = "";
+        newItemModal.style.display = "none";
+      }
+    });
 
 
 
