@@ -6,55 +6,65 @@
       </div>
       <div id='event-list'>
 
-        <!-- Loop over each object in the events array -->
-        {{#each events as |event|}}
+        {{#if events.length}}
+          <!-- Loop over each object in the events array -->
 
-          <div class='dashboard-card'>
+          {{#each events as |event|}}
 
-            <div class='dashboard-card-header'>
+            <div class='dashboard-card'>
 
-              <div class='dashboard-card-header-media'>
+              <div class='dashboard-card-header'>
 
-                <div class='dashboard-card-header-title'>
+                <div class='dashboard-card-header-media'>
 
-                  <h4>{{event.event_title}}</h4>
+                  <div class='dashboard-card-header-title'>
 
-                </div>
+                    <h4>{{event.event_title}}</h4>
 
-                <div class='dashboard-card-header-cta-group'>
+                  </div>
 
-                  <button class='delete-button'>
-                    <img
-                      class='dashboard-card-header-cta'
-                      src='../public/assets/images/Trash-Can.svg'
-                    />
-                  </button>
+                  <div class='dashboard-card-header-cta-group'>
 
-                  <button class='check-button'>
-                    <img
-                      class='dashboard-card-header-cta'
-                      src='../public/assets/images/View.svg'
-                    />
-                  </button>
+                    <button class='delete-button'>
+                      <img
+                        class='dashboard-card-header-cta'
+                        src='../public/assets/images/Trash-Can.svg'
+                        data-id="{{event.id}}"
+                      />
+                    </button>
+
+                    <button class='check-button'>
+                      <img
+                        class='dashboard-card-header-cta'
+                        src='../public/assets/images/View.svg'
+                        data-id="{{event.id}}"
+                      />
+                    </button>
+
+                  </div>
 
                 </div>
 
               </div>
 
+              <p class='event-type-text'>{{event.event_type}}</p>
+
+              <div class='dashboard-card-footer'>
+
+                    <p class='event-date-text'>{{event.event_date}}</p>
+
+              </div>
+
             </div>
 
-            <p class='event-type-text'>{{event.event_type}}</p>
+          {{/each}}
 
-            <div class='dashboard-card-footer'>
-
-            </div>
-
-          </div>
-
-        {{/each}}
+        {{/if}}
 
       </div>
 
     </article>
   </section>
 </section>
+
+<script src="../public/assets/js/dashboard.js"></script>

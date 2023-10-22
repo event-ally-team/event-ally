@@ -408,6 +408,13 @@ input.signInput:hover {
 
 }
 
+.event-type-date {
+
+
+  text-align: left;
+
+}
+
 .signInLink:hover,
 .signUpLink:hover {
   text-decoration: underline;
