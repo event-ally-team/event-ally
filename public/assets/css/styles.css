@@ -156,7 +156,7 @@ input[type='text'] {
   display: block;
   grid-template-rows: auto 1fr auto;
   overflow: auto;
-
+}
 
   /*Style for the sign in and sign up section*/
   /*style for the container and content section*/
@@ -262,6 +262,7 @@ input.signInput:hover {
   padding-bottom: 40px;
   padding-right: 40px;
   padding-left: 40px;
+}
 
 /* Link styles */
 .signInLink,
@@ -411,5 +412,66 @@ input.signInput:hover {
 .signUpLink:hover {
   text-decoration: underline;
   color: #08203a;
+}
+
+/* Event Checklist CSS code */
+/*Checklist container, dashboard button and new item button*/
+.checklistDashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.topButtons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.dashboardButton {
+  background-color: transparent;
+  color: black;
+  font-weight: bolder;
+  font-size: 17px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.dashboardButton i {
+  margin-right: 5px;
+}
+
+.dashboardButton:hover {
+  border: 2px solid #08203a;
+  width: 10vw;
+}
+
+.newItemContainer {
+  display: flex;
+  justify-content: flex-end; 
+  align-items: center;
+  width: 100%; 
+  margin-right: 15%;
+  padding: -20px;
+}
+
+.newItemButton {
+  background-color: #08203a;
+  color: #fff;
+  width: 15vw;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  float: right;
+  cursor: pointer;
 }
 
