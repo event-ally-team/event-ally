@@ -6,7 +6,7 @@ const RSVPs = require('./RSVPRoutes');
 const checklist = require('./checklistRoutes');
 const { User, Event, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
-const { sequelize } = require('../../models/User');
+
 
 
 router.use('/users', userRoutes);

@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const {Users} = require('../../models');
 const withAuth = require('../../utils/auth');
-const { sequelize } = require('../../models/User');
+
 
 
 // The `/api/users` endpoint

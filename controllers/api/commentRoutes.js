@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const {Comments} = require('../../models');
 const withAuth = require('../../utils/auth');
-const { sequelize } = require('../../models/User');
+
 
 
 // The `/api/comments` endpoint
