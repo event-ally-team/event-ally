@@ -1,6 +1,9 @@
 const router = require('express').Router();
 const {RSVPs} = require('../../models');
 const withAuth = require('../../utils/auth');
+const { sequelize } = require('../../models/User');
+
+
 
 // The `/api/RSVPs` endpoint
 

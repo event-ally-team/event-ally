@@ -1,6 +1,8 @@
 const router = require('express').Router();
-const {Events} = require('../../models');
+const { Events } = require('../../models');
 const withAuth = require('../../utils/auth');
+const { sequelize } = require('../../models/User');
+
 
 
 // The `/api/events` endpoint
