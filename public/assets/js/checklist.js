@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
     newItemModal.style.display = "none";
   });
 
-    // Event listener to add a new item and close the pop-up
+    // Event listener to add a new item 
     addNewItemButton.addEventListener("click", function () {
       const title = newItemTitle.value;
       const description = newItemDescription.value;
@@ -105,13 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
         newItemModal.style.display = "none";
       }
     });
-
-
-
-
-
-
-
-
-
-});
+    tasks.forEach((task, index) => {
+      createCard(task.title, task.description);
+    });
+  });
