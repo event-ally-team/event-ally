@@ -1,9 +1,10 @@
 #wrapper {
-  max-width: 100%;
-  height: calc(100% - 160px);
-  display: block;
+  width: 100%;
+  height: calc( 100% - 160px );
+  display: flex;
   grid-template-rows: auto 1fr auto;
   overflow: auto;
+  flex-direction: column;
 }
 
 body {
@@ -115,86 +116,37 @@ input[type='text'] {
   text-align: left;
 }
 
-.taskOrganizer {
-  text-align: center;
-  background-color: #343a40;
-  color: #fff;
-  padding: 15px;
-  margin-bottom: 20px;
+introduction-section {
+  display: flex;
+  flex-direction: row;
+  flex: 1 0 1;
+  justify-content: center;
+  
+
 }
 
-.taskMainForm {
-  max-width: 800px;
-  margin: 0 auto;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-}
-/* Style for task form and list */
-.taskForm ul {
-  list-style: none;
-}
+.main-introduction-section {
+  display: flex;
+  flex-direction: row;
+  flex: 1 0 1;
+  justify-content: center;
+  
 
-.taskForm li {
-  margin: 10px 0;
 }
-
-.taskStatus {
-  width: 70%;
-  padding: 5px;
-}
-
-.addForm input {
-  width: 35%;
-  padding: 5px;
-}
-
-.taskSelectStatus {
-  width: 20%;
-  padding: 5px;
-}
-
-/* Style for buttons*/
-.taskAddBtn,
-.taskSaveBtn {
-  background-color: #343a40;
-  color: #fff;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.taskAddBtn:hover,
-.taskSaveBtn:hover {
-  background-color: #343a40;
-}
-
-.task .taskDeleteBtn {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 5px;
-}
-
-.task .taskDeleteBtn i {
-  color: #ff0000; /* Delete Button icon color */
-}
-
 
 .introduction-section-dashboard {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  flex: 1 0 0;
+  flex-direction: row;
+  flex: 1 0 1;
+  justify-content: center;
 }
 
 .introduction-section-new-event {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  flex: 1 0 0;
+  flex-direction: row;
+  flex: 1 0 1;
+  justify-content: center;
+
 }
 
 .introduction-article {
@@ -223,10 +175,9 @@ input[type='text'] {
   display: block;
   grid-template-rows: auto 1fr auto;
   overflow: auto;
-
+}
 
   /*Style for the sign in and sign up section*/
-
   /*style for the container and content section*/
   .userContainer {
     background-color: white;
@@ -330,6 +281,7 @@ input.signInput:hover {
   padding-bottom: 40px;
   padding-right: 40px;
   padding-left: 40px;
+}
 
 /* Link styles */
 .signInLink,
@@ -475,9 +427,274 @@ input.signInput:hover {
 
 }
 
+.event-type-date {
+
+
+  text-align: left;
+
+}
+
 .signInLink:hover,
 .signUpLink:hover {
   text-decoration: underline;
   color: #08203a;
 }
 
+/* Event Checklist CSS code */
+/*Checklist container, dashboard button and new item button*/
+.checklistDashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.topButtons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.dashboardButton {
+  background-color: transparent;
+  color: black;
+  font-weight: bolder;
+  font-size: 17px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.dashboardButton i {
+  margin-right: 5px;
+}
+
+.dashboardButton:hover {
+  border: 2px solid #08203a;
+  width: 10vw;
+}
+
+.newItemContainer {
+  display: flex;
+  justify-content: flex-end; 
+  align-items: center;
+  width: 100%; 
+  margin-right: 15%;
+  padding: -20px;
+}
+
+.newItemButton {
+  background-color: #08203a;
+  color: #fff;
+  width: 15vw;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  float: right;
+  cursor: pointer;
+}
+
+.event-name {
+  font-size: 30px;
+  margin: 20px;
+}
+
+.checklistContainer {
+  text-align: center;
+  width: 83%;
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.checklist {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  margin: 2%;
+  padding: 10px;
+  width: 20vw;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  position: relative;
+  overflow: hidden;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.card button {
+  position: relative;
+  overflow: hidden;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.checklistTitle {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.checklistDescription {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.checklistDeleteIcon {
+  color: #e74c3c;
+  cursor: pointer;
+  position: absolute;
+  width: 10%;
+  top: 10px;
+  right: 30px;
+}
+
+.checklistCheckIcon {
+  color: #2ecc71;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.undoButton {
+  color: black;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+/* The pop-up modal */
+.popup-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  width: 25vw;
+  height: 45vh;
+  text-align: center;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  font-weight: bolder;
+  width: 2vw;
+  cursor: pointer;
+}
+.close:hover {
+  color: red;
+  font-weight: bolder;
+}
+
+label,
+button {
+  display: block;
+  margin: 10px 0;
+  width: 25vw;
+}
+
+#newTitle,
+#newDescription {
+  font-size: 17px;
+  font-weight: bold;
+  text-align: left;
+}
+
+#newItemTitle,
+#newItemDescription {
+  display: block;
+  margin: 10px 0;
+  width: 25vw;
+  font-size: 14px;
+}
+
+#newItemTitle {
+  height: 4vh;
+}
+
+#newItemDescription {
+  height: 12vh;
+}
+
+#newItemTitle:hover,
+#newItemDescription:hover {
+  border: 2px solid #005f7f;
+}
+
+#addNewItemButton {
+  background-color: #08203a;
+  color: white;
+  width: 25vw;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#addNewItemButton:hover {
+  background-color: #005f7f;
+}
+/* When the user clicks the check icon, the green backgroud will appear aa a mark that the item has been completed. */
+.completed {
+  background-color: #2ecc71;
+  color: #fff;
+}
+
+.app-introduction-paragraph-chips {
+  font-family: Roboto;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 26px;
+  width:100%;
+  justify-content: left;
+}
+
+.btn {
+  border: none;
+  background-color: hsl(360, 91%, 36%);
+  border-radius: 25px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
+    0px;
+  color: hsl(0, 0%, 100%);
+  display: inline-block;
+  font-size: 22px;
+  line-height: 22px;
+  margin: 16px 16px 16px 20px;
+  padding: 14px 34px;
+  text-align: center;
+  cursor: pointer;
+  max-width: 180px;
+}

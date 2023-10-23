@@ -2,11 +2,16 @@ const router = require('express').Router();
 const {Checklist} = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// The `/api/checklist` endpoint
 
+
+// The `/api/checklist` endpoint
 router.post('/', async (req, res) => {
     try {
-        const checklistData = await Checklist.create(req.body);
+        const checklistData = await Checklist.create({
+            ...req.body,
+            user_id: req.session.user_id,
+        
+        });
         res.status(200).json(checklistData);
     } catch (err) {
         res.status(400).json(err);
@@ -20,6 +25,7 @@ router.delete('/:id', async (req, res) => {
         const checklistData = await Checklist.destroy({
             where: {
                 id: req.params.id,
+                user_id: req.session.user_id,
             },
         });
         if (!checklistData) {
