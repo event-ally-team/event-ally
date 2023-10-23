@@ -1,41 +1,63 @@
-const { DataTypes, Model } = require('sequelize');
-const sequelize = require('../config/connection');
+const { DataTypes, Model } = require("sequelize");
+const sequelize = require("../config/connection");
+const bcrypt = require('bcrypt');
 
 /* If another model or table is created modify changes here */
-class User extends Model {}
+class User extends Model {
+  checkPassword(loginPw) {
+    return bcrypt.compareSync(loginPw, this.password);
+  }
+}
 
 User.init(
   {
-    user_id: {
-      primaryKey: true,
-      allowNull: false,
+    id: {
       type: DataTypes.INTEGER,
-    },
-    email_adr: {
       allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    name: {
       type: DataTypes.STRING,
+      allowNull: false,
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
       unique: true,
+      validate: {
+        isEmail: true,
+      },
     },
-    user_name: {
+    password: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
-    },
-    passwords: {
-      allowNull: false,
-      type: DataTypes.STRING,
+      validate: {
+        len: [8],
+      },
     },
   },
   {
+    hooks: {
+      beforeCreate: async (newUserData) => {
+        newUserData.password = await bcrypt.hash(newUserData.password, 10);
+        return newUserData;
+      },
+      beforeUpdate: async (updatedUserData) => {
+        updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+        return updatedUserData;
+      },
+    },
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'users',
+    modelName: 'user',
   }
 );
 
-class Event extends Model {}
+class Event extends Model {
+}
 
 Event.init(
   {
@@ -48,12 +70,6 @@ Event.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-
-    event_type: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-
     geolocation: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -78,7 +94,8 @@ Event.init(
   }
 );
 
-class RSVP extends Model {}
+class RSVP extends Model {
+}
 
 RSVP.init(
   {
@@ -111,7 +128,8 @@ RSVP.init(
   }
 );
 
-class Checklist extends Model {}
+class Checklist extends Model {
+}
 
 Checklist.init(
   {
@@ -139,7 +157,8 @@ Checklist.init(
   }
 );
 
-class Comment extends Model {}
+class Comment extends Model {
+}
 
 Comment.init(
   {
@@ -173,21 +192,23 @@ with their foregin keys if another
 relationship needs to be estbalished when coding add code to the following
 */
 //Users for the "users" table and so om
-User.hasMany(Event, { foreignKey: 'host_id' });
-User.hasMany(Comment, { foreignKey: 'user_id' });
-User.hasMany(RSVP, { foreignKey: 'user_id' });
+User.hasMany(Event, { foreignKey: "host_id" });
+User.hasMany(Comment, { foreignKey: "user_id" });
+User.hasMany(RSVP, { foreignKey: "user_id" });
 //Events for the "events" table
-Event.hasMany(RSVP, { foreignKey: 'event_id' });
-Event.belongsTo(User, { foreignKey: 'host_id' });
-Event.hasMany(Comment, { foreignKey: 'event_id' });
-Event.hasMany(Checklist, { foreignKey: 'event_id' });
+Event.hasMany(RSVP, { foreignKey: "event_id" });
+Event.belongsTo(User, { foreignKey: "host_id" });
+Event.hasMany(Comment, { foreignKey: "event_id" });
+Event.hasMany(Checklist, { foreignKey: "event_id" });
 //Comments for the "comments" table
-Comment.belongsTo(Event, { foreignKey: 'event_id' });
-Comment.belongsTo(User, { foreignKey: 'user_id' });
+Comment.belongsTo(Event,{foreignKey:"event_id"});
+Comment.belongsTo(User,{foreignKey:"user_id"});
 //RSVP for the "RSVPs" table
-RSVP.belongsTo(Event, { foreignKey: 'event_id' });
-RSVP.belongsTo(User, { foreignKey: 'user_id' });
+RSVP.belongsTo(Event,{foreignKey:"event_id"});
+RSVP.belongsTo(User,{foreignKey:"user_id"});
 //for the "checklist" table
-Checklist.belongsTo(Event, { foreignKey: 'event_id' });
+Checklist.belongsTo(Event,{foreignKey:"event_id"});
 
-module.exports = { User, Event, RSVP, Checklist, Comment };
+
+module.exports = {User, Event, RSVP, Checklist,Comment,};
+
