@@ -1,18 +1,9 @@
 const router = require('express').Router();
-const {Users} = require('../../models');
-const withAuth = require('../../utils/auth');
-
-
-
-// The `/api/users` endpoint
+const { User } = require('../../models');
 
 router.post('/', async (req, res) => {
   try {
-    const userData = await User.create({
-      ...req.body,
-      user_id: req.session.user_id,
-    });
-      
+    const userData = await User.create(req.body);
 
     req.session.save(() => {
       req.session.user_id = userData.id;
