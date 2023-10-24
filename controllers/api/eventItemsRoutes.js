@@ -1,14 +1,14 @@
 const router = require('express').Router();
-const {EventItems} = require('./eventItems');
+const {EventItem} = require('./eventItem');
 
 router.post('/', async (req, res) => {
     
         try {
-            const EventItemsData = await EventItems.create({
+            const EventItemData = await EventItem.create({
                 ...req.body,
                 user_id: req.session.user_id,
             });
-            res.status(200).json(EventItemsData);
+            res.status(200).json(EventItemData);
         } catch (err) {
             res.status(400).json(err);
         }
@@ -19,10 +19,10 @@ router.post('/', async (req, res) => {
 router.get('/event/:id', async (req, res) => {
 
     try {
-        const eventItemsData = await EventItems.findByPk(req.params.id, {
+        const EventItemData = await EventItem.findByPk(req.params.id, {
             include: [
                 {
-                    model: EventItems,
+                    model: EventItem,
                     attributes: ['name'],
                     attributes: ['description'],
                     attributes: ['date'],
@@ -32,7 +32,7 @@ router.get('/event/:id', async (req, res) => {
             ],
         
         });
-        res.status(200).json(eventItemsData);
+        res.status(200).json(EventItemData);
     } catch (err) {
         res.status(500).json(err);
     }
@@ -42,7 +42,7 @@ router.get('/event/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
 
     try {
-        const EventItemsData = await EventItems.destroy({
+        const EventItemData = await EventItem.destroy({
             where: {
                 id: req.params.id,
                 user_id: req.session.user_id,
@@ -52,7 +52,7 @@ router.delete('/:id', async (req, res) => {
             res.status(404).json({ message: 'No event found with this id!' });
             return;
         }
-        res.status(200).json(EventItemsData);
+        res.status(200).json(EventItemData);
     } catch (err) {
         res.status(500).json(err);
     }
@@ -62,13 +62,13 @@ router.delete('/:id', async (req, res) => {
 router.get('eventItems', async (req, res) => {
 
     try {
-        const eventItemsData = await EventItems.findAll({
+        const EventItemData = await EventItem.findAll({
             where: {
                 user_id: req.session.user_id,
 
             },
         });
-        res.status(200).json(eventItemsData);
+        res.status(200).json(EventItemData);
     } catch (err) {
         res.status(500).json(err);
     }
@@ -78,16 +78,16 @@ router.get('eventItems', async (req, res) => {
 router.get('EventItems/:id', async (req, res) => {
 
     try {
-        const eventItemsData = await EventItems.findByPk(req.params.id, {
+        const EventItemData = await EventItem.findByPk(req.params.id, {
             where: {
                 user_id: req.session.user_id,
             },
         });
-        if (!eventItemsData) {
+        if (!EventItemData) {
             res.status(404).json({ message: 'No event found with this id!' });
             return;
         }
-        res.status(200).json(eventItemsData);
+        res.status(200).json(EventItemData);
     } catch (err) {
         res.status(500).json(err);
     }
