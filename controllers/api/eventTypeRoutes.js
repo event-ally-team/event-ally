@@ -1,22 +1,22 @@
 const router = require('express').Router();
-const {eventTypes} = require('./eventTypeRoutes');
+const {EventTypes} = require('./eventTypeRoutes');
 
 
 router.post('/', async (req, res) => {
 
     try {
-        const eventTypeData = await eventType.create({
+        const EventTypeData = await EventType.create({
             ...req.body,
             user_id: req.session.user_id,
         });
-        res.status(200).json(eventTypeData);
+        res.status(200).json(EventTypeData);
     } catch (err) {
         res.status(400).json(err);
     }
     }
 );
 
-router.get('/event/:id', withAuth, async (req, res) => {
+router.get('/event/:id', async (req, res) => {
     try {
         const eventTypeData = await eventType.findByPk(req.params.id, {
             include: [
@@ -31,7 +31,7 @@ router.get('/event/:id', withAuth, async (req, res) => {
             ],
         
         });
-        res.status(200).json(eventTypeData);
+        res.status(200).json(EventTypeData);
     } catch (err) {
         res.status(500).json(err);
     }
@@ -41,7 +41,7 @@ router.get('/event/:id', withAuth, async (req, res) => {
 router.delete('/:id', async (req, res) => {
 
     try {
-        const eventTypeData = await eventType.destroy({
+        const EventTypeData = await EventType.destroy({
             where: {
                 id: req.params.id,
                 user_id: req.session.user_id,
@@ -51,14 +51,14 @@ router.delete('/:id', async (req, res) => {
             res.status(404).json({ message: 'No event found with this id!' });
             return;
         }
-        res.status(200).json(eventTypeData);
+        res.status(200).json(EventTypeData);
     } catch (err) {
         res.status(500).json(err);
     }
 }
 );
 
-router.get('eventType', async (req, res) => {
+router.get('EventType', async (req, res) => {
 
     if (req.session.logged_in) {
         res.redirect('/eventType');
