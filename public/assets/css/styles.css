@@ -210,7 +210,7 @@ introduction-section {
   text-align: center;
   justify-content: center;
   object-fit: fill;
-  color: var(--dark-color);
+  color: black;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -669,6 +669,13 @@ input.signInput:hover {
   font-weight: bolder;
 }
 
+.client-event{
+
+  justify-content: center;
+ 
+
+}
+
 label,
 button {
   display: block;
@@ -736,7 +743,7 @@ button {
 .btn {
   border: none;
   background-color: hsl(360, 91%, 36%);
-  border-radius: 25px;
+  border-radius: 6px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
     0px;
   color: hsl(0, 0%, 100%);
@@ -770,3 +777,42 @@ button {
   align-items: flex-start;
   align-self: stretch;
 }
+
+/* CSS from https://getcssscan.com/css-buttons-examples START*/
+
+.button-9 {
+  appearance: button;
+  background-color: #2ecc71;
+  border-radius: 6px;
+  border-width: 0;
+  box-shadow: rgba(50, 93, 58, 0.1) 0 0 0 1px inset, rgba(50, 93, 57, 0.1) 0 2px 5px 0, rgba(0, 0, 0, 0.07) 0 1px 1px 0;
+  
+  color: white;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif, "Segoe UI", Roboto, "Helvetica Neue", Ubuntu, sans-serif;
+  font-size: 100%;
+  height: 44px;
+  width: 100%;
+  line-height: 1.15;
+  margin: 48PX 0 0;
+  outline: none;
+  overflow: hidden;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  transform: translateZ(0);
+  transition: all .2s, box-shadow .08s ease-in;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  align-self: stretch;
+
+}
+
+.button-9:disabled {
+  cursor: default;
+}
+
+
+/* CSS from https://getcssscan.com/css-buttons-examples END*/
