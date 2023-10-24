@@ -5,7 +5,7 @@ class Event extends Model {}
 
 Event.init(
   {
-    event_id: {
+    id: {
       primaryKey: true,
       allowNull: false,
       type: DataTypes.INTEGER,
@@ -15,7 +15,7 @@ Event.init(
       type: DataTypes.STRING(255),
       allowNull: false,
     },
-    event_type_id: {
+    type: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
@@ -27,13 +27,13 @@ Event.init(
       type: DataTypes.DATE,
       allowNull: false,
     },
-    host_id: {
+    user_id: {
       type: DataTypes.INTEGER,
     },
   },
   {
     sequelize,
-    modelName: 'events',
+    modelName: 'event',
     timestamps: false,
     freezeTableName: true,
     underscored: true,

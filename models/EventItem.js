@@ -5,31 +5,42 @@ class EventItem extends Model {}
 
 EventItem.init(
   {
-    item_id: {
-      primaryKey: true,
-      allowNull: false,
+    id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
       autoIncrement: true,
     },
-    checklist_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    item_name: {
+    title: {
       type: DataTypes.STRING(255),
       allowNull: false,
     },
-    item_info: {
+    description: {
       type: DataTypes.STRING(300),
     },
     is_completed: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
     },
+    event_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'event',
+        key: 'id',
+      },
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'id',
+      },
+    },
+
   },
   {
     sequelize,
-    modelName: 'event_items',
+    modelName: 'eventItem',
     timestamps: false,
     freezeTableName: true,
     underscored: true,
