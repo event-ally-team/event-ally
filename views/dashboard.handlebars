@@ -29,7 +29,7 @@
                       <img
                         class='dashboard-card-header-cta'
                         src='../public/assets/images/Trash-Can.svg'
-                        data-id="{{event.id}}"
+                        data-id='{{event.id}}'
                       />
                     </button>
 
@@ -37,7 +37,15 @@
                       <img
                         class='dashboard-card-header-cta'
                         src='../public/assets/images/View.svg'
-                        data-id="{{event.id}}"
+                        data-id='{{event.id}}'
+                      />
+                    </button>
+
+                    <button class='check-button'>
+                      <img
+                        class='dashboard-card-header-cta'
+                        src='../../public/assets/images/Edit.svg'
+                        data-id='{{event.id}}'
                       />
                     </button>
 
@@ -51,7 +59,7 @@
 
               <div class='dashboard-card-footer'>
 
-                    <p class='event-date-text'>{{event.event_date}}</p>
+                <p class='event-date-text'>{{event.event_date}}</p>
 
               </div>
 
@@ -67,4 +75,4 @@
   </section>
 </section>
 
-<script src="../public/assets/js/dashboard.js"></script>
+<script src='../public/assets/js/dashboard.js'></script>
