@@ -1,39 +1,52 @@
-  <section id='new-event-screen'>
-        <section class='introduction-section-new-event'>
-          <article class='introduction-article'>
-            <h1 class='client-event'>New event</h1>
-            <p class='app-introduction-paragraph'>What is the title of your event?</p>
-            <input id='new-user-event' required />
-            <p class='app-introduction-paragraph'>What is the category of your event?</p>
-            <select id='newEventCategory'>
-              <option>Birthday</option>
-              <option>Graduation</option>
-              <option>Wedding</option>
-              <option>Birth</option>
-              <option>Vacations</option>
-              <option>Travel</option>
-              <option>Achievement</option>
-              <option>Career</option>
-              <option>Pets</option>
-              <option>Family</option>
-              <option>Campaigns</option>
-              <option>Causes</option>
-              <option>Solidarity</option>
-              <option>Charity</option>
-              <option>Hobbies</option>
-              <option>Holidays</option>
-              <option>Investments</option>
-              <option>Clothing</option>
-              <option>Health</option>
-              <option>Other</option>
-            </select>
-            <p class='app-introduction-paragraph'>When will the event take place?</p>
+<section id='new-event-screen'>
+  <section class='introduction-section-new-event'>
+    <article class='introduction-article'>
+      <h1 class='client-event'>New event</h1>
+      <p class='app-introduction-paragraph'>What is the title of your event?</p>
+      <input id='new-user-event' required />
+      <p class='app-introduction-paragraph'>What is the category of your event?</p>
+      <select id='newEventCategory'>
+        <option>Birthday</option>
+        <option>Graduation</option>
+        <option>Wedding</option>
+        <option>Birth</option>
+        <option>Vacations</option>
+        <option>Travel</option>
+        <option>Achievement</option>
+        <option>Career</option>
+        <option>Pets</option>
+        <option>Family</option>
+        <option>Campaigns</option>
+        <option>Causes</option>
+        <option>Solidarity</option>
+        <option>Charity</option>
+        <option>Hobbies</option>
+        <option>Holidays</option>
+        <option>Investments</option>
+        <option>Clothing</option>
+        <option>Health</option>
+        <option>Other</option>
+      </select>
 
-            <!-- Insert calendar here -->
+      <p class='app-introduction-paragraph'>When will the event take place?</p>
 
-          </article>
-        </section>
-      </section>
+      <div id='calendarContainer'>
+        <div id='eventslink'>Events</div>
+        <div id='listevents'></div>
+        <div id='date-selection'>
+          <label for='from-date'>From:</label>
+          <input type='date' id='fromDate' />
+          <label for='to-date'>To:</label>
+          <input type='date' id='toDate' />
+        </div>
+        <div id='calendar'></div>
+        <div id='de'></div>
+      </div>
 
+    </article>
+  </section>
+</section>
 
-<script src="../public/assets/js/newEvent.js"></script>
+<script src='../public/assets/js/newEvent.js'></script>
+<script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
+<script type='text/javascript' src='../public/assets/js/script.js'></script>
