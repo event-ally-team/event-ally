@@ -1,35 +1,31 @@
 const router = require('express').Router();
-const {Event} = require('../../models');
+const { Event } = require('../../models');
 
 router.post('/event', async (req, res) => {
 
     try {
         const EventItemData = await Event.create({
-
             ...req.body,
             user_id: req.session.user_id,
             title: req.body.title,
-            type: req.body.type, 
+            type: req.body.type,
             start_date: req.body.start_date,
             end_date: req.body.end_date,
         });
         res.status(200).json(EventItemData);
     } catch (err) {
         res.status(400).json(err);
-
     }
-    }
-);
-
+});
 
 router.get('/event/:id', async (req, res) => {
-    
+
     if (req.session.logged_in) {
         res.redirect('/newEvent');
         return;
     }
     try {
-        res.render('/newEvent');
+        res.render('newEvent');
     }
     catch (err) {
         res.status(500).json(err);
@@ -39,22 +35,16 @@ router.get('/event/:id', async (req, res) => {
         const EventItemData = await Event.findByPk(req.params.id, {
             include: [
                 {
-                    model: Event ,
-                    attributes: ['title'],
-                    attributes: ['type'],
-                    attributes: ['start_date'],
-                    attributes: ['end_date'],
-                    
+                    model: Event,
+                    attributes: ['title', 'type', 'start_date', 'end_date'],
                 },
             ],
-        
         });
         res.status(200).json(EventItemData);
     } catch (err) {
         res.status(500).json(err);
     }
-}
-);
+});
 
 router.delete('/:id', async (req, res) => {
 
@@ -73,10 +63,6 @@ router.delete('/:id', async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     }
-}
-);
-
-
-
+});
 
 module.exports = router;
