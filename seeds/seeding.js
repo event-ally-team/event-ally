@@ -199,7 +199,7 @@ const seedDatabase = async () => {
     });
 
     
-    const maxEventItems = 5; /* Number of event items for each event */
+    const maxEventItems = eventData.length; /* Number of event items for each event */
     /* this coresponds to the events that are created */
 
     for (let i = 0; i < maxEventItems; i++) {
