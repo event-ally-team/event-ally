@@ -200,9 +200,10 @@ const seedDatabase = async () => {
 
     
     const maxEventItems = 5; /* Number of event items for each event */
+    /* this coresponds to the events that are created */
 
     for (let i = 0; i < maxEventItems; i++) {
-      const itemData = predefinedEventItems[i % predefinedEventItems.length]; // Repeat predefined items cyclically
+      const itemData = predefinedEventItems[i % predefinedEventItems.length]; 
       await EventItem.create({
         title: itemData.title,
         description: itemData.description,
