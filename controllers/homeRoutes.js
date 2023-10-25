@@ -21,21 +21,19 @@ router.post('/signup',  async (req, res) => {
 );
 
 router.get('/login', async (req, res) => {
-
   if (req.session.logged_in) {
     res.redirect('/signIn');
+
     return;
-  }
-  try {
-    res.render('/signIn');
-  }
-  catch (err) {
-    res.status(500).json(err);
-  }
-} 
-);
 
-
-
+  } else {
+    
+    try {
+      res.render('signIn');
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  }
+});
 
 module.exports = router;
