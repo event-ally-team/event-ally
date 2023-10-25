@@ -26,16 +26,6 @@ router.get('/login', async (req, res) => {
     res.redirect('/signIn');
     return;
   }
-  try {
-    res.render('/signIn');
-  }
-  catch (err) {
-    res.status(500).json(err);
-  }
-} 
-);
-
-
-
+});
 
 module.exports = router;
