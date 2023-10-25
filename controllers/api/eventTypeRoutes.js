@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {EventType} = require('./eventTypeRoutes');
+const {EventType} = require('../../models');
 
 
 router.post('/', async (req, res) => {

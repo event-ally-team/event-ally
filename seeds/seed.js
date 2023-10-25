@@ -1,5 +1,5 @@
 const sequelize = require('../config/connection');
-const {User,Event,RSVP,Checklist,Comment } = require('../models/index');
+const {User,Event,Checklist } = require('../models/index');
 
 //Add the data with the columns the exact same order as its respective table
 const UserJSON = [

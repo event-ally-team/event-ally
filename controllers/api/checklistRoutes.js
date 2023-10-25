@@ -47,7 +47,7 @@ router.get('/checklist/:id', async (req, res) => {
                     model: Checklist,
                     attributes: ['name'],
                     attributes: ['description'],
-                    attributes: ['due_date'],
+                    attributes: ['date'],
                     attributes: ['completed'],
                 },
             ],

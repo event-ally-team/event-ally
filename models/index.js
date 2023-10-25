@@ -4,8 +4,27 @@ const EventType = require('./event-type');
 const Checklist = require('./checklist');
 const EventItem = require('./event-item');
 
-User.hasMany(Event, { foreignKey: 'host_id' });
-User.hasMany(Checklist, { foreignKey: 'event_id' });
+User.hasMany(Event, { foreignKey: 'user_id',
+
+onDelete: 'CASCADE',
+
+});
+
+
+
+
+User.hasMany(Checklist, { foreignKey: 'user_id'});
+
+
+
 Event.hasMany(Checklist, { foreignKey: 'event_id' });
-Event.hasMany(EventItem, { foreignKey: 'checklist_id' });
+
+
+Event.hasMany(EventItem, { foreignKey: 'event_id' });
+
+
+
 EventType.hasMany(Event, { foreignKey: 'event_type_id' });
+
+
+module.exports = { User, Event, EventType, Checklist, EventItem};
