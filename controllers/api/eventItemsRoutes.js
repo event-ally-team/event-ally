@@ -1,33 +1,50 @@
 const router = require('express').Router();
-const {EventItem} = require('../../models');
+const {Event} = require('../../models');
 
-router.post('/', async (req, res) => {
-    
-        try {
-            const EventItemData = await EventItem.create({
-                ...req.body,
-                user_id: req.session.user_id,
-            });
-            res.status(200).json(EventItemData);
-        } catch (err) {
-            res.status(400).json(err);
-        }
-        }
-    
-);
-
-router.get('/event/:id', async (req, res) => {
+router.post('/event', async (req, res) => {
 
     try {
-        const EventItemData = await EventItem.findByPk(req.params.id, {
+        const EventItemData = await Event.create({
+
+            ...req.body,
+            user_id: req.session.user_id,
+            title: req.body.title,
+            type: req.body.type, 
+            start_date: req.body.start_date,
+            end_date: req.body.end_date,
+        });
+        res.status(200).json(EventItemData);
+    } catch (err) {
+        res.status(400).json(err);
+
+    }
+    }
+);
+
+
+router.get('/event/:id', async (req, res) => {
+    
+    if (req.session.logged_in) {
+        res.redirect('/newEvent');
+        return;
+    }
+    try {
+        res.render('/newEvent');
+    }
+    catch (err) {
+        res.status(500).json(err);
+    }
+
+    try {
+        const EventItemData = await Event.findByPk(req.params.id, {
             include: [
                 {
-                    model: EventItem,
-                    attributes: ['name'],
-                    attributes: ['description'],
-                    attributes: ['date'],
-                    attributes: ['location'],
-                    attributes: ['completed'],
+                    model: Event ,
+                    attributes: ['title'],
+                    attributes: ['type'],
+                    attributes: ['start_date'],
+                    attributes: ['end_date'],
+                    
                 },
             ],
         
@@ -42,7 +59,7 @@ router.get('/event/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
 
     try {
-        const EventItemData = await EventItem.destroy({
+        const EventItemData = await Event.destroy({
             where: {
                 id: req.params.id,
                 user_id: req.session.user_id,

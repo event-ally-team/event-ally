@@ -1,20 +1,41 @@
 const router = require('express').Router();
-const { Event, User} = require('../models');
+const {User} = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/login', async (req, res) => {
-  if (req.session.logged_in) {
-    res.redirect('/signin');
-    return;
+router.post('/signup',  async (req, res) => {
+
+  try {
+    const userData = await User.create(req.body);
+
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
+
+      res.redirect('/dashboard');
+    });
   }
-  res.render('login');
+  catch (err) {
+    res.status(400).json(err);
+  }
 }
 );
 
-router.get('/' , async (req, res) => {
+router.get('/login', async (req, res) => {
 
   if (req.session.logged_in) {
-    res.redirect('/dashboard');
-  
+    res.redirect('/signIn');
+    return;
   }
-});
+  try {
+    res.render('/signIn');
+  }
+  catch (err) {
+    res.status(500).json(err);
+  }
+} 
+);
+
+
+
+
+module.exports = router;

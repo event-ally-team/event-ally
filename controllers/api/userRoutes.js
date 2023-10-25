@@ -1,6 +1,29 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+
+router.get('/', async (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect('/dashboard');
+    return;
+  }
+  try {
+    res.render('/dashboard');
+  }
+  catch (err) {
+    res.status(500).json(err);
+  }
+  try {
+    const userData = await User.findAll({
+      attributes: { exclude: ['password'] },
+    });
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+}
+);
+
 router.post('/', async (req, res) => {
   try {
     const userData = await User.create(req.body);
@@ -27,7 +50,7 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    const validPassword = await userData.checkPassword(req.body.password);
+    const validPassword = userData.checkPassword(req.body.password);
 
     if (!validPassword) {
       res
