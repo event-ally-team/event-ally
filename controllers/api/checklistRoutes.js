@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {EventItem} = require('../../models');
+const { EventItem } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.post('/', async (req, res) => {
@@ -18,12 +18,10 @@ router.post('/', async (req, res) => {
     }
     catch (err) {
         res.status(400).json(err);
-
     }
-    }
-);
+});
 
-router.get('/EventItem/:id', async, withAuth, (req, res) => {
+router.get('/EventItem/:id', withAuth, async (req, res) => {
 
     if (req.session.logged_in) {
         res.redirect('/checklist');
@@ -36,47 +34,41 @@ router.get('/EventItem/:id', async, withAuth, (req, res) => {
         res.status(500).json(err);
     }
     try {
-        
-        const EventItemData = EventItem.findByPk(req.params.id, {
 
-        where: {
-            id: req.params.id,
-            user_id: req.session.user_id,
-            event_id: req.body.event_id,
-            title: req.body.title,
-            description: req.body.description,
-            is_complete: req.body.is_complete,
-        }, 
-        catch (err) {
-            res.status(500).json(err);
-        }
-    });
+        const EventItemData = await EventItem.findByPk(req.params.id, {
+            where: {
+                id: req.params.id,
+                user_id: req.session.user_id,
+                event_id: req.body.event_id,
+                title: req.body.title,
+                description: req.body.description,
+                is_complete: req.body.is_complete,
+            },
+        });
 
-    res.status(200).json(EventItemData);
-} catch (err) {
-    res.status(500).json(err);
-}
-}
-);
-    
-router.delete('/:id', async (req, res) => {
-    
-        try {
-            const EventItemData = await EventItem.destroy({
-                where: {
-                    id: req.params.id,
-                    user_id: req.session.user_id,
-                },
-            });
-            if (!EventItemData) {
-                res.status(404).json({ message: 'No event found with this id!' });
-                return;
-            }
-            res.status(200).json(EventItemData);
-        } catch (err) {
-            res.status(500).json(err);
-        }
+        res.status(200).json(EventItemData);
+    } catch (err) {
+        res.status(500).json(err);
     }
-    );
+});
+
+router.delete('/:id', async (req, res) => {
+
+    try {
+        const EventItemData = await EventItem.destroy({
+            where: {
+                id: req.params.id,
+                user_id: req.session.user_id,
+            },
+        });
+        if (!EventItemData) {
+            res.status(404).json({ message: 'No event found with this id!' });
+            return;
+        }
+        res.status(200).json(EventItemData);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
 
 module.exports = router;
