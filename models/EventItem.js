@@ -40,7 +40,7 @@ EventItem.init(
   },
   {
     sequelize,
-    modelName: 'eventItem',
+    modelName: 'EventItem',
     timestamps: false,
     freezeTableName: true,
     underscored: true,

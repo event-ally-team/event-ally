@@ -1,32 +1,25 @@
 const sequelize = require('../config/connection');
-const {User,Event,RSVP,Checklist,Comment } = require('../models/index');
+const {User,Event, Checklist, EventItem } = require('../models');
 
-//Add the data with the columns the exact same order as its respective table
-const userData = [
-  {
-    id: 1,
-    email: 'johndoe@gmail.com',
-    password: 'TestP@ssword'
-  },
+const userData = require('./userData.json');
+const eventData = require('./eventData.json');
+const checklistData = require('./checklistData.json');
 
+const db_seed = async () => {
+  try {
+    await sequelize.sync({ force: true });
+    await User.bulkCreate(UserJSON);
+    await Event.bulkCreate(EventsJSON);
+    await Checklist.bulkCreate(ChecklistJSON);
+    await RSVP.bulkCreate(RSVPJSON);
+    await Comment.bulkCreate(CommentsJSON);
+    console.log('The DB seeding worked!!');
+  } catch (error) 
   {
-    id: 2,
-    email: 'test@gmail.com',
-    password: 'Test123#'
+    console.error('There is an error trying to seed the DB data ->', error);
+
   }
-
-];
-
-const eventData = [
-
-];
-
-
-const eventItemData = [
-
-];
-
-
+}
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -47,3 +40,4 @@ const seedDatabase = async () => {
 };
 
 seedDatabase();
+db_seed();
