@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Event listener for the Dashboard button
   dashboardButton.addEventListener('click', function () {
-    window.location.href = 'dashboard.handlebars'; // waiting for the dashboard
+    document.location.replace('/dashboard');
   });
 
   // Event listener for the new item button to show the pop-up

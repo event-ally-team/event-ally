@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const eventStartDate = document.querySelector('fromDate');
   const eventEndDate = document.querySelector('toDate');
   const createEventBtn = document.querySelector('createNewEventButton');
+  const dashboardButton = document.querySelector('.dashboardButton');
 
   // Function to create a new event
   function createEvent(title, type, start_date, end_date) {
@@ -42,6 +43,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
   createEventBtn.addEventListener("click", () => {
     createNewEvent()
+  });
+
+  dashboardButton.addEventListener('click', function () {
+    document.location.replace('/dashboard');
   });
 
 });
