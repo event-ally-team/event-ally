@@ -1,36 +1,23 @@
 const router = require('express').Router();
 const { EventType } = require('../../models');
 
+
 router.get('/event/:id', async (req, res) => {
-    if (!req.session.logged_in) {
-        res.redirect('/newEvent');
-        return;
-    }
     try {
-        res.render('/newEvent');
-    }
-    catch (err) {
-        res.status(500).json(err);
-    }
-    try {
+
         const EventTypeData = await EventType.findByPk(req.params.id, {
-            include: [
-                {
-                    model: EventType,
-                    attributes: ['name'],
-                    attributes: ['description'],
-                    attributes: ['date'],
-                    attributes: ['location'],
-                },
-            ],
+            attributes: ['name', 'description', 'date', 'location'],
         });
+
         if (!EventTypeData) {
-            res.status(404).json({ message: 'No event found with this id!' });
-            return;
+          
+            return res.status(404).json({ message: 'No event type found with this ID!' });
         }
-    }
-    catch (err) {
-        res.status(500).json(err);
+
+        return res.status(200).json(EventTypeData);
+    } catch (err) {
+      
+        return res.status(500).json(err);
     }
 });
 
@@ -45,6 +32,8 @@ router.post('/', async (req, res) => {
         res.status(400).json(err);
     }
 });
+
+
 
 router.delete('/:id', async (req, res) => {
     try {

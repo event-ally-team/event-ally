@@ -16,30 +16,28 @@ router.post('/event', async (req, res) => {
     } catch (err) {
         res.status(400).json(err);
     }
+        return res.render('newEvent');
 });
+
+
 
 router.get('/event/:id', async (req, res) => {
 
-    if (req.session.logged_in) {
-        res.redirect('/newEvent');
-        return;
-    }
-    try {
-        res.render('newEvent');
-    }
-    catch (err) {
-        res.status(500).json(err);
-    }
-
-    try {
+    try { 
         const EventItemData = await Event.findByPk(req.params.id, {
             include: [
                 {
                     model: Event,
                     attributes: ['title', 'type', 'start_date', 'end_date'],
+                    
                 },
             ],
         });
+    
+        if (!EventItemData) {
+            res.status(404).json({ message: 'No event found with this id!' });
+            return;
+        }
         res.status(200).json(EventItemData);
     } catch (err) {
         res.status(500).json(err);

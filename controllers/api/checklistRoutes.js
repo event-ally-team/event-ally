@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
 
     const eventItems = EventItemData.map((project) => project.get({ plain: true }));
 
-    res.render('/checklist', {
+    res.render('checklist', {
         ...eventItems,
         logged_in: req.session.logged_in,
     });
