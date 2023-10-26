@@ -1,6 +1,6 @@
 #wrapper {
   width: 100%;
-  height: calc( 100% - 160px );
+  height: calc(100% - 160px);
   display: flex;
   grid-template-rows: auto 1fr auto;
   overflow: auto;
@@ -137,7 +137,7 @@ body {
   font-weight: bold;
 }
 
-input[type="text"] {
+input[type='text'] {
   width: 100%;
   padding: 10px;
   margin: 10px 0;
@@ -176,8 +176,6 @@ introduction-section {
   flex-direction: column;
   flex: 1 0 1;
   justify-content: center;
-  
-
 }
 
 .main-introduction-section {
@@ -185,8 +183,6 @@ introduction-section {
   flex-direction: row;
   flex: 1 0 1;
   justify-content: center;
-  
-
 }
 
 .introduction-section-dashboard {
@@ -201,7 +197,6 @@ introduction-section {
   flex-direction: row;
   flex: 1 0 1;
   justify-content: center;
-
 }
 
 .introduction-article {
@@ -232,28 +227,35 @@ introduction-section {
   overflow: auto;
 }
 
-  /*Style for the sign in and sign up section*/
-  /*style for the container and content section*/
-  .userContainer {
-    background-color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 125vh;
-    font-family: Arial, sans-serif;
-  }
-  
-  /* Content styles */
-  .userContent {
-    text-align: center;
-    background-color: white;
-    border-radius: 15px;
-    padding: 5%;
-    max-width: 150vw;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
-  }
-  
-  /*Style for the header and forms*/
+/*Style for the sign in and sign up section*/
+/*style for the container and content section*/
+.centerContainerUser {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.userContainer {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 110vh;
+  font-family: Arial, sans-serif;
+}
+
+/* Content styles */
+.userContent {
+  text-align: center;
+  background-color: white;
+  border-radius: 15px;
+  padding: 5%;
+  max-width: 150vw;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+}
+
+/*Style for the header and forms*/
 .signMessage,
 .signHeader {
   text-align: left;
@@ -287,7 +289,6 @@ span.eventAlly {
   font-weight: bold;
   display: block;
   padding: 15px;
-
 }
 
 /* Input styles */
@@ -310,7 +311,7 @@ input.signInput:hover {
 /* Button styles */
 .signInBtn,
 .signupBtn {
-  width: 108%;
+  width: 100%;
   height: 7vh;
   padding: 12px;
   margin-top: 5%;
@@ -329,7 +330,6 @@ input.signInput:hover {
   background-color: #343a40;
 }
 
-
 .introduction-article-event {
   font-family: 'Roboto', sans-serif;
   padding-top: 40px;
@@ -341,14 +341,12 @@ input.signInput:hover {
 /* Link styles */
 .signInLink,
 .signUpLink {
-
   text-align: center;
   display: block;
   color: #08203a;
   text-decoration: none;
   margin-top: 5%;
 }
-
 
 #event-list {
   display: flex;
@@ -400,7 +398,6 @@ input.signInput:hover {
   padding-bottom: 16px;
   align-self: stretch;
   justify-content: left;
-
 
   color: var(--muted-color, #78858f);
 
@@ -472,17 +469,11 @@ input.signInput:hover {
 }
 
 .event-type-text {
-
-
   text-align: left;
-
 }
 
 .event-type-date {
-
-
   text-align: left;
-
 }
 
 .signInLink:hover,
@@ -534,9 +525,9 @@ input.signInput:hover {
 
 .newItemContainer {
   display: flex;
-  justify-content: flex-end; 
+  justify-content: flex-end;
   align-items: center;
-  width: 100%; 
+  width: 100%;
   margin-right: 15%;
   padding: -20px;
 }
@@ -669,11 +660,8 @@ input.signInput:hover {
   font-weight: bolder;
 }
 
-.client-event{
-
+.client-event {
   justify-content: center;
- 
-
 }
 
 label,
@@ -736,7 +724,7 @@ button {
   font-style: normal;
   font-weight: 600;
   line-height: 26px;
-  width:100%;
+  width: 100%;
   justify-content: left;
 }
 
@@ -785,16 +773,18 @@ button {
   background-color: #2ecc71;
   border-radius: 6px;
   border-width: 0;
-  box-shadow: rgba(50, 93, 58, 0.1) 0 0 0 1px inset, rgba(50, 93, 57, 0.1) 0 2px 5px 0, rgba(0, 0, 0, 0.07) 0 1px 1px 0;
-  
+  box-shadow: rgba(50, 93, 58, 0.1) 0 0 0 1px inset,
+    rgba(50, 93, 57, 0.1) 0 2px 5px 0, rgba(0, 0, 0, 0.07) 0 1px 1px 0;
+
   color: white;
   cursor: pointer;
-  font-family: "Montserrat", sans-serif, "Segoe UI", Roboto, "Helvetica Neue", Ubuntu, sans-serif;
+  font-family: 'Montserrat', sans-serif, 'Segoe UI', Roboto, 'Helvetica Neue',
+    Ubuntu, sans-serif;
   font-size: 100%;
   height: 44px;
   width: 100%;
   line-height: 1.15;
-  margin: 48PX 0 0;
+  margin: 48px 0 0;
   outline: none;
   overflow: hidden;
   padding: 0 25px;
@@ -802,17 +792,15 @@ button {
   text-align: center;
   text-transform: none;
   transform: translateZ(0);
-  transition: all .2s, box-shadow .08s ease-in;
+  transition: all 0.2s, box-shadow 0.08s ease-in;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
   align-self: stretch;
-
 }
 
 .button-9:disabled {
   cursor: default;
 }
-
 
 /* CSS from https://getcssscan.com/css-buttons-examples END*/
