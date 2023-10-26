@@ -10,7 +10,7 @@ onDelete: 'CASCADE',
 
 });
 
-
+Event.belongsTo(User, { foreignKey: 'user_id' });
 
 
 User.hasMany(Checklist, { foreignKey: 'user_id'});
