@@ -36,4 +36,5 @@ The application is still under development and will be deployed soon.
 
 ## Preview of the application
 
+<img width="1302" alt="A preview of an application named Event Ally" src="https://github.com/event-ally-team/event-ally/assets/20988563/866afcc0-aef9-408c-ae37-193404e7a5b4">
 
