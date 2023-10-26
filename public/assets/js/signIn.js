@@ -47,17 +47,36 @@ const signUpFormHandler = async (event) => {
   }
 };
 
-// Add event listeners for the buttons
+//This function is to show the Sign In Form and hide the Sign Up Form.
+function showSignInForm() {
+  const signInForm = document.querySelector('.signInForm');
+  const signUpForm = document.querySelector('.signUpForm');
+
+  signInForm.style.display = 'block';
+  signUpForm.style.display = 'none';
+}
+
+// This function is to show the Sign Up Form when the user clicks the Sign Up button on the Sign In Form.
+function showSignUpForm() {
+  const signInForm = document.querySelector('.signInForm');
+  const signUpForm = document.querySelector('.signUpForm');
+
+  signUpForm.style.display = 'block';
+  signInForm.style.display = 'none';
+}
+// Hide the Sign Up form
+document.querySelector('.signUpForm').style.display = 'none';
+
+// Add event listeners for form submissions
 document
   .querySelector('.signInForm')
   .addEventListener('submit', signInFormHandler);
-document
-  .querySelector('.signUpMessage')
-  .addEventListener('click', showSignUpForm);
-
 document
   .querySelector('.signUpForm')
   .addEventListener('submit', signUpFormHandler);
 document
   .querySelector('.signInMessage')
   .addEventListener('click', showSignInForm);
+document
+  .querySelector('.signUpMessage')
+  .addEventListener('click', showSignUpForm);
