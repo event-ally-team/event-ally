@@ -1,12 +1,26 @@
 <section id='event-dashboard'>
   <section class='introduction-section-dashboard'>
     <article class='introduction-article-event'>
+
+      <div class='topButtons'>
+        <button class='dashboardButton'>
+          <i class='fas fa-chevron-left'></i>
+          Dashboard
+        </button>
+      </div>
+
       <div id='title-container'>
         <h1>Events Dashboard</h1>
       </div>
+
+      <div class='newItemContainer'>
+        <button class='newItemButton' id="'newEventButton">New Event</button>
+      </div>
+
       <div id='event-list'>
 
         {{#if events.length}}
+
           <!-- Loop over each object in the events array -->
 
           {{#each events as |event|}}
@@ -25,7 +39,7 @@
 
                   <div class='dashboard-card-header-cta-group'>
 
-                    <button class='delete-button'>
+                    <button class='delete-button' id='delete-button-event-card'>
                       <img
                         class='dashboard-card-header-cta'
                         src='/assets/images/Trash-Can.svg'
@@ -33,7 +47,7 @@
                       />
                     </button>
 
-                    <button class='check-button'>
+                    <button class='check-button' id='check-button-event-card'>
                       <img
                         class='dashboard-card-header-cta'
                         src='/assets/images/View.svg'
@@ -41,7 +55,7 @@
                       />
                     </button>
 
-                    <button class='check-button'>
+                    <button class='check-button' id='edit-button-event-card'>
                       <img
                         class='dashboard-card-header-cta'
                         src='/assets/images/Edit.svg'
@@ -55,11 +69,12 @@
 
               </div>
 
-              <p class='event-type-text'>{{event.event_type}}</p>
+              <p class='event-type-text'>{{event.type}}</p>
 
               <div class='dashboard-card-footer'>
 
-                <p class='event-date-text'>{{event.event_date}}</p>
+                <p class='event-date-text'>{{event.start_date}}</p>
+                <p class='event-date-text'>{{event.end_date}}</p>
 
               </div>
 
@@ -73,6 +88,8 @@
 
     </article>
   </section>
+
+
 </section>
 
 <script src='/assets/js/dashboard.js'></script>
