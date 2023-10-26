@@ -10,8 +10,6 @@ onDelete: 'CASCADE',
 
 });
 
-Event.belongsTo(User, { foreignKey: 'user_id' });
-
 
 User.hasMany(Checklist, { foreignKey: 'user_id'});
 
@@ -26,5 +24,6 @@ Event.hasMany(EventItem, { foreignKey: 'event_id' });
 
 EventType.hasMany(Event, { foreignKey: 'event_type_id' });
 
+Event.belongsTo(User, { foreignKey: 'user_id' });
 
 module.exports = { User, Event, EventType, Checklist, EventItem};
