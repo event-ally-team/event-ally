@@ -1,0 +1,99 @@
+[
+    {
+        "title": "John's Birthday Party",
+        "type": "Birthday",
+        "start_date": "2023-11-10",
+        "end_date": "2023-11-10"
+      },
+      {
+        "title": "Sara's Graduation Ceremony",
+        "type": "Graduation",
+        "start_date": "2023-12-15",
+        "end_date": "2023-12-15"
+      },
+      {
+        "title": "Emily and Mark's Wedding",
+        "type": "Wedding",
+        "start_date": "2023-09-20",
+        "end_date": "2023-09-20"
+      },
+      {
+        "title": "New Baby's Arrival",
+        "type": "Birth",
+        "start_date": "2023-04-05",
+        "end_date": "2023-04-05"
+      },
+      {
+        "title": "Summer Vacation in Europe",
+        "type": "Vacations",
+        "start_date": "2023-07-15",
+        "end_date": "2023-08-05"
+      },
+      {
+        "title": "Business Trip to New York",
+        "type": "Travel",
+        "start_date": "2023-06-10",
+        "end_date": "2023-06-15"
+      },
+      {
+        "title": "Achievement Award Ceremony",
+        "type": "Achievement",
+        "start_date": "2023-03-20",
+        "end_date": "2023-03-20"
+      },
+      {
+        "title": "Career Milestone Celebration",
+        "type": "Career",
+        "start_date": "2023-02-10",
+        "end_date": "2023-02-10"
+      },
+      {
+        "title": "Pet's Birthday Party",
+        "type": "Pets",
+        "start_date": "2023-07-02",
+        "end_date": "2023-07-02"
+      },
+      {
+        "title": "Family Reunion",
+        "type": "Family",
+        "start_date": "2023-08-25",
+        "end_date": "2023-08-27"
+      },
+      {
+        "title": "Campaign Kickoff Event",
+        "type": "Campaigns",
+        "start_date": "2023-05-01",
+        "end_date": "2023-05-01"
+      },
+      {
+        "title": "Fundraising for a Cause",
+        "type": "Causes",
+        "start_date": "2023-06-08",
+        "end_date": "2023-06-08"
+      },
+      {
+        "title": "Solidarity March",
+        "type": "Solidarity",
+        "start_date": "2023-04-22",
+        "end_date": "2023-04-22"
+      },
+      {
+        "title": "Charity Gala",
+        "type": "Charity",
+        "start_date": "2023-07-30",
+        "end_date": "2023-07-30"
+      },
+      {
+        "title": "Hobby Expo",
+        "type": "Hobbies",
+        "start_date": "2023-09-15",
+        "end_date": "2023-09-17"
+      },
+      {
+        "title": "Holiday Getaway",
+        "type": "Holidays",
+        "start_date": "2023-12-24",
+        "end_date": "2023-12-31"
+      }
+    ]
+
