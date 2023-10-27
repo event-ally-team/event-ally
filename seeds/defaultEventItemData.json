@@ -1,0 +1,74 @@
+[
+        {
+          "type" : "Birthday",
+          "title": "Select Venue",
+          "description": "Decide where the party will be held."
+        },
+        {
+          "type" : "Birthday",
+          "title": "Create Guest List",
+          "description": "Make a list of people you want to invite and gather their contact information."
+        },
+        {
+          "type" : "Birthday",
+          "title": "Choose Theme",
+          "description": "Decide on a theme for the party, if desired (e.g., superhero, princess, retro, etc.)."
+        },
+        {
+          "type" : "Birthday",
+          "title": "Send Invitations",
+          "description": "Create and send out invitations, whether physical or digital."
+        },
+        {
+          "type" : "Birthday",
+          "title": "Plan Entertainment",
+          "description": "Organize games and activities suitable for the guests' interests."
+        },
+        {
+          "type" : "Birthday",
+          "title": "Arrange Food & Drinks",
+          "description": "Decide on the menu, including cake and beverages."
+        },
+        {
+          "type" : "Birthday",
+          "title": "Decoration",
+          "description": "Decorate the venue to match the chosen theme."
+        },
+        {
+          "type" : "Birthday",
+          "title": "Cake & Dessert",
+          "description": "Order or bake a birthday cake and other desserts."
+        },
+        {
+          "type" : "Birthday",
+          "title": "Party Favors",
+          "description": "Prepare goody bags or party favors for guests."
+        },
+        {
+          "type" : "Birthday",
+          "title": "Music & Entertainment",
+          "description": "Set up a music playlist or hire a DJ, and arrange any entertainment you have planned."
+        },
+        {
+          "type" : "Birthday",
+          "title": "Gifts",
+          "description": "Coordinate the opening of gifts, if desired."
+        },
+        {
+          "type" : "Birthday",
+          "title": "Photography",
+          "description": "Assign someone to capture photos and videos throughout the event."
+        },
+        {
+          "type" : "Birthday",
+          "title": "Safety Precautions",
+          "description": "Ensure the venue is safe and secure for all guests."
+        },
+        {
+          "type" : "Birthday",
+          "title": "Budget",
+          "description": "Create a budget for the party to manage expenses."
+        }
+      ]
+
+
