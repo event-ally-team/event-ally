@@ -1,44 +1,35 @@
 const router = require('express').Router();
-const { EventItem } = require('../../models');
+const { Checklist } = require('../../models');
 
 
-router.get('/', async (req, res) => {
+router.get('/checklist', async (req, res) => {
     try{
-        const EventItemData = await EventItem.findAll({
+        const ChecklistData = await Checklist.findAll({
             include: [
                 {
-                    model: EventItem,
-                    attributes: ['EventItem'],
+                    model: Checklist,
+                    attributes: ['checklist_id', 'event_id', 'title', 'description'],
                 },
-                
             ],
-    });
-
-    const eventItems = EventItemData.map((project) => project.get({ plain: true }));
-
-    res.render('checklist', {
-        ...eventItems,
-        logged_in: req.session.logged_in,
-    });
+        });
+      
+        const checklist = ChecklistData.map((checklist) => checklist.get({ plain: true }));
+        res.render('checklist', { checklist });
     } catch (err) {
         res.status(500).json(err);
     }
 });
-
-   
-
-
-router.post('/', async (req, res) => {
+      
+router.post('/checklist', async (req, res) => {
 
     try {
-        const EventItemData = await EventItem.create({
-            ...req.body,
-             checklist_id: req.session.checklist_id,
-            event_id: req.session.event_id,
-            title: req.session.title,
-            description: req.session.description,
+        const ChecklistData = await Checklist.create({
+            checklist_id: req.body.checklist_id,
+            event_id: req.body.event_id,
+            title: req.body.title,
+            description: req.body.description,
         });
-        res.status(200).json(EventItemData);
+        res.status(200).json(ChecklistData);
     }
     catch (err) {
         res.status(400).json(err);
@@ -49,7 +40,7 @@ router.post('/', async (req, res) => {
 router.delete('/:id', async (req, res) => {
 
     try {
-        const EventItemData = await EventItem.destroy({
+        const ChecklistData = await Checklist.destroy({
             where: {
              checklist_id: req.params.id,
              event_id: req.params.id,
@@ -57,11 +48,11 @@ router.delete('/:id', async (req, res) => {
                 description: req.params.description,
             },
         });
-        if (!EventItemData) {
+        if (!ChecklistData) {
             res.status(404).json({ message: 'No event found with this id!' });
             return;
         }
-        res.status(200).json(EventItemData);
+        res.status(200).json(ChecklistData);
     } catch (err) {
         res.status(500).json(err);
     }
