@@ -21,6 +21,14 @@ body {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   width: 400px;
   text-align: center;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.calendar-label {
+
+display:inline;
+
 }
 
 #eventslink {
@@ -36,7 +44,7 @@ body {
 
 #date-selection {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   margin: 5px 0;
 }
@@ -187,7 +195,7 @@ introduction-section {
 
 .introduction-section-dashboard {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex: 1 0 1;
   justify-content: center;
 }
@@ -336,6 +344,10 @@ input.signInput:hover {
   padding-bottom: 40px;
   padding-right: 40px;
   padding-left: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
 }
 
 /* Link styles */
@@ -372,6 +384,17 @@ input.signInput:hover {
   gap: 32px;
   max-width: 680px;
 }
+
+.title-container {
+  
+
+  block-size: fit-content;
+  text-align: center;
+  justify-content: center;
+
+
+}
+
 
 /* Figma assisted CSS START */
 
@@ -662,13 +685,27 @@ input.signInput:hover {
 
 .client-event {
   justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.client-event-dashboard {
+  width: fit-content;
+  block-size: fit-content;
+  justify-content: center;
+  text-align: center;
+  height: 100px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 label,
 button {
   display: block;
-  margin: 10px 0;
-  width: 25vw;
+  margin: 8px 0;
+  
 }
 
 #newTitle,
@@ -754,9 +791,14 @@ button {
   align-items: flex-start;
   gap: 8px;
   align-self: stretch;
-  border-radius: 8px;
-  border: 1px solid black;
-  background: white;
+
+
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #333;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+
 }
 
 #newEventCategory {
@@ -804,3 +846,14 @@ button {
 }
 
 /* CSS from https://getcssscan.com/css-buttons-examples END*/
+
+#new-event-category {
+
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #333;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  height: 44px;
+
+}
