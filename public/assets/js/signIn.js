@@ -9,7 +9,7 @@ const signInFormHandler = async (event) => {
 
   if (email && password) {
     // send the data to the server
-    const response = await fetch('/api/users', {
+    const response = await fetch('/api/users/login', {
       method: 'POST',
       body: JSON.stringify({ email, password }),
       headers: { 'Content-Type': 'application/json' },
@@ -33,7 +33,7 @@ const signUpFormHandler = async (event) => {
 
   if (email && password) {
     // send the data to the server
-    const response = await fetch('/api/users', {
+    const response = await fetch('/api/users/', {
       method: 'POST',
       body: JSON.stringify({ email, password }),
       headers: { 'Content-Type': 'application/json' },
