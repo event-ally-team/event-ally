@@ -26,10 +26,10 @@ DefaultEventItem.init(
   },
   {
     sequelize,
-    modelName: 'eventItem',
     timestamps: false,
     freezeTableName: true,
     underscored: true,
+    modelName: 'defaultEventItem',
   }
 );
 

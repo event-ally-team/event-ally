@@ -6,9 +6,9 @@ class EventItem extends Model {}
 EventItem.init(
   {
     id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
       primaryKey: true,
+      allowNull: false,
+      type: DataTypes.INTEGER,
       autoIncrement: true,
     },
     title: {
@@ -18,7 +18,7 @@ EventItem.init(
     description: {
       type: DataTypes.STRING(300),
     },
-    is_completed: {
+    completed: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
     },
