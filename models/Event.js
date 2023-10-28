@@ -37,10 +37,10 @@ Event.init(
   },
   {
     sequelize,
-    modelName: 'event',
     timestamps: false,
     freezeTableName: true,
     underscored: true,
+    modelName: 'event',
   }
 );
 
