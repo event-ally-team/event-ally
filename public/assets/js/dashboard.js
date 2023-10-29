@@ -57,15 +57,21 @@
 }
 
   document
-    .querySelector('.delete-button-event-card')
+    .querySelector('delete-button-event-card')
     .addEventListener('click', delButtonHandler);
+
+    document
+    .querySelector('.edit-button-event-card')
+    .addEventListener('click', editButtonHandler);
+
+    document
+    .querySelector('check-button-event-card')
+    .addEventListener('click', viewButtonHandler);
 
 
   document
   .querySelector('.newEventButton')
   .addEventListener('click', newEventButtonHandler);
 
-    document
-    .querySelector('.check-button-event-card')
-    .addEventListener('click', viewButtonHandler);
+
 
