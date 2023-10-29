@@ -179,6 +179,17 @@ input[type='text'] {
   text-align: left;
 }
 
+.newEventGroup{
+
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: flex-start;
+  gap: 8px;
+  align-self: stretch;
+
+}
+
 introduction-section {
   display: flex;
   flex-direction: column;
@@ -198,6 +209,17 @@ introduction-section {
   flex-direction: column;
   flex: 1 0 1;
   justify-content: center;
+  align-self: stretch;
+}
+
+#event-dashboard {
+
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 1;
+  justify-content: center;
+  align-self: stretch;
+
 }
 
 .introduction-section-new-event {
@@ -259,6 +281,11 @@ introduction-section {
   border-radius: 15px;
   padding: 5%;
   max-width: 150vw;
+
+}
+
+#header{
+height: 80px;
 
 }
 
@@ -841,6 +868,77 @@ button {
 }
 
 .button-9:disabled {
+  cursor: default;
+}
+
+
+.button-10 {
+  appearance: button;
+  background-color: #cc2e5d;
+  border-radius: 6px;
+  border-width: 0;
+  box-shadow: rgba(50, 93, 58, 0.1) 0 0 0 1px inset,
+    rgba(50, 93, 57, 0.1) 0 2px 5px 0, rgba(0, 0, 0, 0.07) 0 1px 1px 0;
+
+  color: white;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif, 'Segoe UI', Roboto, 'Helvetica Neue',
+    Ubuntu, sans-serif;
+  font-size: 100%;
+  height: 44px;
+  width: 100%;
+  line-height: 1.15;
+  margin: 48px 0 0;
+  outline: none;
+  overflow: hidden;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  transform: translateZ(0);
+  transition: all 0.2s, box-shadow 0.08s ease-in;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  align-self: stretch;
+}
+
+.button-10:disabled {
+  cursor: default;
+}
+
+.button-11 {
+  appearance: button;
+  background-color: #2ecc71;
+  border-radius: 6px;
+  border-width: 0;
+  box-shadow: rgba(50, 93, 58, 0.1) 0 0 0 1px inset,
+    rgba(50, 93, 57, 0.1) 0 2px 5px 0, rgba(0, 0, 0, 0.07) 0 1px 1px 0;
+
+  color: white;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif, 'Segoe UI', Roboto, 'Helvetica Neue',
+    Ubuntu, sans-serif;
+  font-size: 100%;
+  height: 44px;
+  width: 16%;
+  line-height: 1.15;
+  margin: 48px 0 0;
+  outline: none;
+  overflow: hidden;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  transform: translateZ(0);
+  transition: all 0.2s, box-shadow 0.08s ease-in;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+
+}
+
+.button-11:disabled {
   cursor: default;
 }
 

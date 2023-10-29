@@ -18,6 +18,14 @@ router.get('/signIn', (req, res) => {
   res.render('signIn');
 });
 
+router.get('/login', (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect('dashboard');
+    return;
+  }
+  res.render('signIn');
+});
+
 router.get('/signUp', (req, res) => {
   if (req.session.logged_in) {
     res.redirect('dashboard');

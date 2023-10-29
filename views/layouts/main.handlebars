@@ -34,7 +34,7 @@
 
   <body>
 
-    <header class='display-flex justify-space-between align-center p-2'>
+    <header class='display-flex justify-space-between align-center p-2' id="header">
       <a>
         <img
           id='event-ally-logo'
@@ -45,7 +45,7 @@
       <nav>
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
-          <button class='btn' id='logout'>logout</button>
+          <button class='button-10' id='logout'>logout</button>
         {{/if}}
       </nav>
     </header>
