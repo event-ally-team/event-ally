@@ -1,0 +1,21 @@
+<div class="centerContainerUser">
+  <div class="userContainer">
+    <div class="userContent">
+      <div class="signInContainer">
+        <div>
+          <form class="signInForm" action="/login" method="post">
+            <p class="signMessage">Welcome to <span class="eventAlly">EVENT ALLY</span></p>
+            <h2 class="signHeader">Sign In</h2>
+            <label class="email signlabel" for="email">Enter your email address</label>
+            <input class="signInput" type="text" id="email-signIn" name="email" placeholder="Email address" required autocomplete="username" value="{{email}}">
+            <label class="password signlabel" for="password">Enter your Password</label> <!-- Fixed for attribute -->
+            <input class="signInput" type="password" id="password-signIn" name="password" placeholder="Password" required value="{{password}}" />
+            <button class="signInBtn" type="submit">Sign In</button>
+            <a class="signUpLink" href="/signUp">Don't have an account? Sign up</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/assets/js/login.js"></script>
