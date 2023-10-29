@@ -1,52 +1,44 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const categorySelector = document.getElementById('newEventCategory');
-  const eventTitle = document.querySelector('new-user-event');
-  const eventStartDate = document.querySelector('fromDate');
-  const eventEndDate = document.querySelector('toDate');
-  const createEventBtn = document.querySelector('createNewEventButton');
-  const dashboardButton = document.querySelector('.dashboardButton');
 
-  // Function to create a new event
-  function createEvent(title, type, start_date, end_date) {
-    const newItem = {
-      title,
-      type,
-      start_date,
-      end_date,
-    };
+  const createEventBtn = document.getElementById('createNewEventButton');
+  const dashboardButton = document.getElementById('dashboardButton');
 
-    fetch('/api/events', {
+
+
+  const newFormHandler = async () => {
+
+    start_date = (`${document.getElementById('fromDate').value.trim()}`);
+    end_date = (`${document.getElementById('toDate').value.trim()}`);
+    title = document.getElementById('new-user-event').value.trim();
+    type = document.querySelector('#newEventCategory').value.trim();
+    console.log(title);
+
+
+//  if (eventTitle.value.trim() && categorySelector.value.trim() && eventStartDate.value.trim() && eventEndDate.value.trim()) {
+    const response = await fetch(`/api/events/`, {
       method: 'POST',
+      body: JSON.stringify({ title, type, start_date, end_date }),
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(newItem),
-    })
-      .then((response) => {
-        if (response.status === 201) {
-          // The event was successfully created
-          document.location.replace('/dashboard');
-        } else {
-          console.error('Error creating event');
-        }
-      })
-      .catch((error) => {
-        console.error('Error creating event:', error);
-      });
-  }
+    });
 
-  function createNewEvent() {
-    if (eventTitle.value.trim() && categorySelector.value.trim() && eventStartDate.value.trim() && eventEndDate.value.trim()) {
-      createEvent(eventTitle.value.trim(), categorySelector.value.trim(), eventStartDate.value.trim(), eventEndDate.value.trim());
+    if (response.ok) {
+      document.location.replace('/dashboard');
+    } else {
+      alert('Failed to create event');
     }
-  }
+  
 
+};
+
+  
   createEventBtn.addEventListener("click", () => {
-    createNewEvent()
+    newFormHandler()
   });
 
   dashboardButton.addEventListener('click', function () {
     document.location.replace('/dashboard');
   });
 
-});
+
+  

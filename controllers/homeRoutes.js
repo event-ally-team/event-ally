@@ -26,6 +26,10 @@ router.get('/login', (req, res) => {
   res.render('signIn');
 });
 
+router.get('/logout', (req, res) => {
+  res.render('signIn');
+});
+
 router.get('/signUp', (req, res) => {
   if (req.session.logged_in) {
     res.redirect('dashboard');

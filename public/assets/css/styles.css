@@ -26,9 +26,7 @@ body {
 }
 
 .calendar-label {
-
-display:inline;
-
+  display: inline;
 }
 
 #eventslink {
@@ -179,15 +177,13 @@ input[type='text'] {
   text-align: left;
 }
 
-.newEventGroup{
-
+.newEventGroup {
   display: flex;
   flex-direction: column;
   justify-content: left;
   align-items: flex-start;
   gap: 8px;
   align-self: stretch;
-
 }
 
 introduction-section {
@@ -213,13 +209,11 @@ introduction-section {
 }
 
 #event-dashboard {
-
   display: flex;
   flex-direction: column;
   flex: 1 0 1;
   justify-content: center;
   align-self: stretch;
-
 }
 
 .introduction-section-new-event {
@@ -263,7 +257,6 @@ introduction-section {
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
 .userContainer {
@@ -281,12 +274,10 @@ introduction-section {
   border-radius: 15px;
   padding: 5%;
   max-width: 150vw;
-
 }
 
-#header{
-height: 80px;
-
+#header {
+  height: 80px;
 }
 
 /*Style for the header and forms*/
@@ -346,7 +337,7 @@ input.signInput:hover {
 .signInBtn,
 .signupBtn {
   width: 100%;
-  height: 7vh;
+  height: 60px;
   padding: 12px;
   margin-top: 5%;
   border: none;
@@ -373,7 +364,6 @@ input.signInput:hover {
   display: flex;
   flex-direction: column;
   justify-content: center;
-
 }
 
 /* Link styles */
@@ -412,15 +402,10 @@ input.signInput:hover {
 }
 
 .title-container {
-  
-
   block-size: fit-content;
   text-align: center;
   justify-content: center;
-
-
 }
-
 
 /* Figma assisted CSS START */
 
@@ -438,15 +423,14 @@ input.signInput:hover {
 .dashboard-card-header {
   display: flex;
   align-self: stretch;
-  justify-content: center;
   padding-bottom: 16px;
 }
 
 .dashboard-card-footer {
-  display: flex;
   padding-bottom: 16px;
   align-self: stretch;
-  justify-content: left;
+  flex-direction: row;
+  display: flex;
 
   color: var(--muted-color, #78858f);
 
@@ -457,14 +441,16 @@ input.signInput:hover {
   font-weight: 400;
   line-height: 23px; /* 143.75% */
   letter-spacing: 0.5px;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .dashboard-card-header-media {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  align-items: flex-end;
   flex: 1 0 0;
   align-self: stretch;
+  justify-content: space-between;
 }
 
 .dashboard-card-header-title {
@@ -484,9 +470,7 @@ input.signInput:hover {
 
 .dashboard-card-header-cta-group {
   display: flex;
-  align-items: right;
-
-  flex: 1 0 0;
+  align-items: flex-end;
   align-self: stretch;
   flex-direction: row;
 }
@@ -578,7 +562,15 @@ input.signInput:hover {
   align-items: center;
   width: 100%;
   margin-right: 15%;
-  padding: -20px;
+  padding: 20px;
+}
+.newItemContainerNewEvent {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  margin-right: 15%;
+  padding: 20px;
 }
 
 .newItemButton {
@@ -731,7 +723,6 @@ label,
 button {
   display: block;
   margin: 8px 0;
-  
 }
 
 #newTitle,
@@ -818,13 +809,11 @@ button {
   gap: 8px;
   align-self: stretch;
 
-
   border: 1px solid #ccc;
   border-radius: 5px;
   color: #333;
   background-color: #fff;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-
 }
 
 #newEventCategory {
@@ -871,7 +860,6 @@ button {
   cursor: default;
 }
 
-
 .button-10 {
   appearance: button;
   background-color: #cc2e5d;
@@ -886,7 +874,7 @@ button {
     Ubuntu, sans-serif;
   font-size: 100%;
   height: 44px;
-  width: 100%;
+  width: 144px;
   line-height: 1.15;
   margin: 48px 0 0;
   outline: none;
@@ -921,7 +909,7 @@ button {
     Ubuntu, sans-serif;
   font-size: 100%;
   height: 44px;
-  width: 16%;
+  width: 144px;
   line-height: 1.15;
   margin: 48px 0 0;
   outline: none;
@@ -935,7 +923,6 @@ button {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-
 }
 
 .button-11:disabled {
@@ -945,12 +932,10 @@ button {
 /* CSS from https://getcssscan.com/css-buttons-examples END*/
 
 #new-event-category {
-
   border: 1px solid #ccc;
   border-radius: 5px;
   color: #333;
   background-color: #fff;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   height: 44px;
-
 }
