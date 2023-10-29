@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  //function for the undo button
+  // Function for the undo button
   function handleUndoClick(event) {
     const undoButton = event.target;
     const card = undoButton.closest('.card');
@@ -50,140 +50,115 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // Function to create a new checklist
-  function createCard(title, description) {
-    const card = document.createElement('li');
-    card.className = 'card';
-
-    card.innerHTML = `
-      <span class="checklistTitle">${title}</span>
-      <p class="checklistDescription">${description}</p>
-      <span class="checklistCheckIcon"><i class="far fa-check-circle"></i></span>
-      <span class="checklistDeleteIcon"><i class="fas fa-trash-alt"></i></span>
-      <span class="undoButton" style="display: none"><i class="fas fa-undo"></i></span>
-    `;
-
-    const checkIcon = card.querySelector('.checklistCheckIcon');
-    checkIcon.addEventListener('click', toggleChecklistItem);
-
-    const deleteIcon = card.querySelector('.checklistDeleteIcon');
-    deleteIcon.addEventListener('click', handleDeleteCard);
-
-    const undoButton = card.querySelector('.undoButton');
-    if (undoButton) {
-      undoButton.addEventListener('click', handleUndoClick);
+  // Add event listeners for the checklist card buttons for  the completed checklist, delete checklist button and undo button.
+  checklist.addEventListener('click', function (event) {
+    if (event.target.classList.contains('checklistCheckIcon')) {
+      toggleChecklistItem(event);
+    } else if (event.target.classList.contains('checklistDeleteIcon')) {
+      handleDeleteCard(event);
+    } else if (event.target.classList.contains('undoButton')) {
+      handleUndoClick(event);
     }
-
-    checklist.appendChild(card);
-  }
-
-  // Event listener for the Dashboard button
-  dashboardButton.addEventListener('click', function () {
-    document.location.replace('/dashboard');
   });
+});
 
-  // Event listener for the new item button to show the pop-up
-  newItemButton.addEventListener('click', function () {
-    newItemModal.style.display = 'flex';
-  });
+// Event listener for the Dashboard button
+dashboardButton.addEventListener('click', function () {
+  document.location.replace('/dashboard');
+});
 
-  // Event listener to close the pop-up
-  closePopup.addEventListener('click', function () {
+// Event listener for the new item button to show the pop-up
+newItemButton.addEventListener('click', function () {
+  newItemModal.style.display = 'flex';
+});
+
+// Event listener to close the pop-up
+closePopup.addEventListener('click', function () {
+  newItemModal.style.display = 'none';
+});
+
+// Event listener to add a new item
+addNewItemButton.addEventListener('click', function () {
+  const title = newItemTitle.value;
+  const description = newItemDescription.value;
+
+  if (title && description) {
+    createCard(title, description);
+
+    newItemTitle.value = '';
+    newItemDescription.value = '';
     newItemModal.style.display = 'none';
-  });
+  }
+});
 
-  // Event listener to add a new item
-  addNewItemButton.addEventListener('click', function () {
-    const title = newItemTitle.value;
-    const description = newItemDescription.value;
-
-    if (title && description) {
-      createCard(title, description);
-
-      newItemTitle.value = '';
-      newItemDescription.value = '';
-      newItemModal.style.display = 'none';
-    }
-  });
-
-  const eventId = 'event1';
-
-  // Fetch checklist data using event_id
-  fetch('checklist.json')
+// Function to fetch checklist data using event_id
+function fetchChecklistData(eventId) {
+  fetch(`/api/defaultEventItemData/${eventId}`)
     .then((response) => response.json())
     .then((data) => {
-      const checklistData = data[eventId];
-
-      if (checklistData) {
-        checklistData.forEach((task) => {
-          createCard(task.title, task.description);
-        });
-      } else {
-        console.error('Event not found in the JSON file');
-      }
+      const source = document.getElementById('checklist-template').innerHTML;
+      const template = Handlebars.compile(source);
+      const context = { checklistItems: data };
+      const html = template(context);
+      checklist.innerHTML = html;
     })
     .catch((error) => {
       console.error('Error fetching checklist data:', error);
     });
+}
 
-  // Function to display the checklist
-  function fetchChecklist() {
-    fetch('/api/checklist')
-      .then((response) => response.json())
-      .then((data) => {
-        checklist.innerHTML = ''; // Clear the current checklist
-        data.forEach((item) => {
-          createCard(item.title, item.description);
-        });
-      })
-      .catch((error) => {
-        console.error('Error fetching checklist:', error);
-      });
-  }
+// Function to fetch defaultEventItemData and use the event ID
+fetch('/api/defaultEventItemData')
+  .then((response) => response.json())
+  .then((data) => {
+    const eventId = data.eventId;
+    fetchChecklistData(eventId);
+  })
+  .catch((error) => {
+    console.error('Error fetching defaultEventItemData:', error);
+  });
 
-  // Function to create a new checklist item
-  function createChecklistItem(title, description) {
-    const newItem = {
-      title,
-      description,
-    };
+// Function to create a new checklist item
+function createChecklistItem(title, description) {
+  const newItem = {
+    title,
+    description,
+  };
 
-    fetch('/api/checklist', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(newItem),
+  fetch('/api/checklist', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(newItem),
+  })
+    .then((response) => {
+      if (response.status === 201) {
+        fetchChecklist();
+      } else {
+        console.error('Error creating checklist item');
+      }
     })
-      .then((response) => {
-        if (response.status === 201) {
-          // The item was successfully created
-          fetchChecklist(); // Refresh the checklist
-        } else {
-          console.error('Error creating checklist item');
-        }
-      })
-      .catch((error) => {
-        console.error('Error creating checklist item:', error);
-      });
-  }
+    .catch((error) => {
+      console.error('Error creating checklist item:', error);
+    });
+}
 
-  // Function to delete a checklist item
-  function deleteChecklistItem(id) {
-    fetch(`/api/checklist/${id}`, {
-      method: 'DELETE',
+// Function to delete a checklist item
+function deleteChecklistItem(id) {
+  fetch(`/api/checklist/${id}`, {
+    method: 'DELETE',
+  })
+    .then((response) => {
+      if (response.status === 204) {
+        fetchChecklist();
+      } else {
+        console.error('Error deleting checklist item');
+      }
     })
-      .then((response) => {
-        if (response.status === 204) {
-          fetchChecklist();
-        } else {
-          console.error('Error deleting checklist item');
-        }
-      })
-      .catch((error) => {
-        console.error('Error deleting checklist item:', error);
-      });
-  }
+    .catch((error) => {
+      console.error('Error deleting checklist item:', error);
+    });
+}
 
-  fetchChecklist();
-});
+fetchChecklistData(0);

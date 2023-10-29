@@ -83,27 +83,29 @@ router.get('/dashboard', withAuth, async (req, res) => {
   res.render('signIn');
 });
 
-router.get('/checklist/:id', withAuth, async (req, res) => {
+router.get('/checklist', withAuth, async (req, res) => {
+  const selectedType = req.query.type;
+
   if (req.session.logged_in) {
     try {
-      const userData = await User.findByPk(req.session.user_id, {
-        attributes: { exclude: ['password'] },
-        include: [{ model: Event, EventItem }],
+      const checklistData = await DefaultEventItem.findAll({
+        where: {
+          type: selectedType,
+        },
       });
 
-      const user = userData.get({ plain: true });
-
       res.render('checklist', {
-        ...user,
+        checklistData,
+        selectedType,
         logged_in: true,
       });
     } catch (err) {
-      res.status(500).json(err);
+      console.error(err);
+      res.status(500).send('Internal Server Error');
     }
-
-    return;
+  } else {
+    res.redirect('/signIn');
   }
-  res.render('signIn');
 });
 
 module.exports = router;

@@ -1,30 +1,38 @@
     <section>
-    <div class="checklistDashboard">
-      <div class="topButtons">
-        <button class="dashboardButton">
-          <i class="fas fa-chevron-left"></i> Dashboard
-        </button>
-      </div>
-      <div class="checklistContainer">
-        <h1 class="event-name">Event Name checklist</h1>
-        <div class="newItemContainer">
-          <button class="newItemButton">New Item</button>
+        <div class="checklistDashboard">
+            <div class="topButtons">
+                <button class="dashboardButton">
+                    <i class="fas fa-chevron-left"></i> Dashboard
+                </button>
+            </div>
+            <div class="checklistContainer">
+                <h1 class="event-name">{{event.title}} Checklist</h1>
+                <div class="newItemContainer">
+                    <button class="newItemButton">New Item</button>
+                </div>
+                <ul class="checklist" id="checklist">
+                    {{#each checklistItems}}
+                    <li class="card">
+                        <span class="checklistTitle">{{title}}</span>
+                        <p class="checklistDescription">{{description}}</p>
+                        <span class="checklistCheckIcon"><i class="far fa-check-circle"></i></span>
+                        <span class="checklistDeleteIcon"><i class="fas fa-trash-alt"></i></span>
+                        <span class="undoButton" style="display: none"><i class="fas fa-undo"></i></span>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
         </div>
-        <ul class="checklist" id="checklist">
-          <!-- JavaScript will add the checklist cards here -->
-        </ul>
-      </div>
-    </div>
-    <div class="popup-modal" id="newItemModal">
-      <div class="popup-content">
-        <span class="close" id="closePopup">&times;</span>
-        <h2>Add New Item</h2>
-        <label id= "newTitle"  "newItemTitle">Title:</label>
-        <input type="text" id="newItemTitle" required />
-        <label id="newDescription" for="newItemDescription">Description:</label>
-        <textarea id="newItemDescription" required></textarea>
-        <button id="addNewItemButton">Add New Item</button>
-      </div>
-    </div>
+        <div class="popup-modal" id="newItemModal">
+            <div class="popup-content">
+                <span class="close" id="closePopup">&times;</span>
+                <h2>Add New Item</h2>
+                <label for="newItemTitle">Title:</label>
+                <input type="text" id="newItemTitle" required />
+                <label for="newItemDescription">Description:</label>
+                <textarea id="newItemDescription" required></textarea>
+                <button id="addNewItemButton">Add New Item</button>
+            </div>
+        </div>
     </section>
     <script src="/js/checklist.js"></script>
