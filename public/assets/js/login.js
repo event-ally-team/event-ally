@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const password = document.querySelector('#password-signUp').value.trim();
 
     if (email && password) {
-      const response = await fetch('/api/users/', {
+      const response = await fetch('/api/users', {
         method: 'POST',
         body: JSON.stringify({ email, password }),
         headers: { 'Content-Type': 'application/json' },
@@ -64,20 +64,28 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Event listener for the form submission
-  document
-    .querySelector('.signInForm')
-    .addEventListener('submit', signInFormHandler);
+  const signInForm = document.querySelector('.signInForm');
+  console.log(signInForm);
+  if (signInForm) {
+    signInForm.addEventListener('submit', signInFormHandler);
+  }
 
-  document
-    .querySelector('.signUpForm')
-    .addEventListener('submit', signUpFormHandler);
+  const signUpForm = document.querySelector('.signUpForm');
+  console.log(signUpForm);
+  if (signUpForm) {
+    signUpForm.addEventListener('submit', signUpFormHandler);
+  }
 
   // Event listener for the links
-  document
-    .querySelector('.signInLink')
-    .addEventListener('click', showSignInForm);
+  const signInLink = document.querySelector('.signInLink');
+  console.log(signInLink);
+  if (signInLink) {
+    signInLink.addEventListener('click', showSignInForm);
+  }
 
-  document
-    .querySelector('.signUpLink')
-    .addEventListener('click', showSignUpForm);
+  const signUpLink = document.querySelector('.signUpLink');
+  console.log(signUpLink);
+  if (signUpLink) {
+    signUpLink.addEventListener('click', showSignUpForm);
+  }
 });
