@@ -241,7 +241,7 @@ introduction-section {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+
 }
 
 .userContainer {
@@ -249,7 +249,6 @@ introduction-section {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 110vh;
   font-family: Arial, sans-serif;
 }
 
@@ -260,7 +259,7 @@ introduction-section {
   border-radius: 15px;
   padding: 5%;
   max-width: 150vw;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+
 }
 
 /*Style for the header and forms*/

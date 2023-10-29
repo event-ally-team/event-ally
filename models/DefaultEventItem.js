@@ -12,17 +12,17 @@ DefaultEventItem.init(
       autoIncrement: true,
     },
     type: {
-        type: DataTypes.STRING(300),
-        allowNull: false,
-      },
+      type: DataTypes.STRING(300),
+      allowNull: false,
+    },
     title: {
-        type: DataTypes.STRING(255),
-        allowNull: false,
-      },
+      type: DataTypes.STRING(255),
+      allowNull: false,
+    },
     description: {
-        type: DataTypes.STRING(300),
-        allowNull: false,
-      },
+      type: DataTypes.STRING(300),
+      allowNull: false,
+    },
   },
   {
     sequelize,
