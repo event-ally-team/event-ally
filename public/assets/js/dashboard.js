@@ -1,9 +1,15 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const newEventButton = document.querySelector('newEventButton');
+
+  
+  const newEventButton = document.querySelector('#newEventButton');
 
   newEventButton.addEventListener('click', function () {
     document.location.replace('/newEvent');
+    console.log("true");
   });
+
+
+
+
 
   const delButtonHandler = async (event) => {
     if (event.target.hasAttribute('data-id')) {
@@ -57,7 +63,12 @@ document.addEventListener('DOMContentLoaded', function () {
     .querySelector('.delete-button-event-card')
     .addEventListener('click', delButtonHandler);
 
+
+  document
+  .querySelector('#newEventButton')
+  .addEventListener('click', newEventButtonHandler);
+
     document
     .querySelector('.check-button-event-card')
     .addEventListener('click', viewButtonHandler);
-});
+

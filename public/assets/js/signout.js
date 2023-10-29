@@ -5,10 +5,10 @@ const logoutFormHandler = async () => {
   });
 
   if (response.ok) {
-    document.location.replace('/');
+    document.location.replace('/signIn');
   } else {
     alert('Failed to log out.');
   }
 };
 
-document.querySelector('#logout').addEventListener('click', logout);
+document.querySelector('#logout').addEventListener('click', logoutFormHandler);

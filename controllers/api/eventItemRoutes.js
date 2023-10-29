@@ -3,14 +3,13 @@ const { EventItem } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.post('/:id', withAuth, async (req, res) => {
-  console.log('test',req.body);
+  console.log('test', req.body);
 
   try {
     const newEventItem = await EventItem.create({
       ...req.body,
       event_id: parseInt(req.params.id),
       user_id: req.session.user_id,
-   
     });
 
     res.status(200).json(newEventItem);
@@ -29,7 +28,11 @@ router.get('/:id', withAuth, async (req, res) => {
     });
 
     if (!eventItemData) {
-      res.status(404).json({ message: 'No event item found for this user with this event id!' });
+      res
+        .status(404)
+        .json({
+          message: 'No event item found for this user with this event id!',
+        });
       return;
     }
 

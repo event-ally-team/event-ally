@@ -36,7 +36,6 @@ EventItem.init(
         key: 'id',
       },
     },
-
   },
   {
     sequelize,
