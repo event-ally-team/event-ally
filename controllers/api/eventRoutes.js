@@ -61,10 +61,10 @@ router.delete('/:id', withAuth, async (req, res) => {
       },
     });
     if (!eventData[0]) {
-      res.status(404).json({ message: 'The event was deleted!' });
+      res.status(200).json({ message: 'The event was deleted!' });
       return;
     }
-    res.status(200).json(eventData);
+    res.status(404).json(eventData);
   } catch (err) {
     res.status(500).json(err);
   }

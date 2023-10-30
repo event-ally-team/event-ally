@@ -28,21 +28,25 @@
 
                   <div class='dashboard-card-header-title'>
 
+                       
+
                     <h4>{{event.title}}</h4>
+
+         
 
                   </div>
 
                   <div class='dashboard-card-header-cta-group'>
 
-                    <button class='delete-button' class='delete-button-event-card'>
+                    <button class='delete-button' data-id='{{event.id}}'>
                       <img
                         class='dashboard-card-header-cta'
                         src='/assets/images/Trash-Can.svg'
-                        data-id='{{event.id}}'
+                        
                       />
                     </button>
 
-                    <button class='check-button' class='check-button-event-card'>
+                    <button class='check-button'  data-id='{{event.id}}'>
                       <img
                         class='dashboard-card-header-cta'
                         src='/assets/images/View.svg'
@@ -50,11 +54,10 @@
                       />
                     </button>
 
-                    <button class='edit-button' class='edit-button-event-card'>
+                    <button class='edit-button'  data-id='{{event.id}}'>
                       <img
                         class='dashboard-card-header-cta'
                         src='/assets/images/Edit.svg'
-                        data-id='{{event.id}}'
                       />
                     </button>
 
