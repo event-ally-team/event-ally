@@ -482,7 +482,7 @@ input.signInput:hover {
 .check-button {
   width: 32px;
   height: 32px;
-  background: #FFFF;
+  background: #ffff;
   color: inherit;
   border: none;
   padding: 0;
@@ -494,7 +494,7 @@ input.signInput:hover {
 .edit-button {
   width: 32px;
   height: 32px;
-  background: #FFFF;
+  background: #ffff;
   color: inherit;
   border: none;
   padding: 0;
@@ -506,7 +506,7 @@ input.signInput:hover {
 .delete-button {
   width: 32px;
   height: 32px;
-  background: #FFFF;
+  background: #ffff;
   color: inherit;
   border: none;
   padding: 0;
@@ -745,13 +745,14 @@ button {
   font-size: 17px;
   font-weight: bold;
   text-align: left;
+  margin-top: 5%;
 }
 
 #newItemTitle,
 #newItemDescription {
   display: block;
   margin: 10px 0;
-  width: 25vw;
+  width: 23vw;
   font-size: 14px;
 }
 
@@ -771,8 +772,9 @@ button {
 #addNewItemButton {
   background-color: #08203a;
   color: white;
-  width: 25vw;
+  width: 23vw;
   padding: 10px;
+  margin-top: 10%;
   border: none;
   border-radius: 5px;
   cursor: pointer;
