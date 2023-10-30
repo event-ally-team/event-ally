@@ -2,7 +2,7 @@
   "name": "event-ally",
   "version": "1.0.0",
   "engines": {
-    "node": "12.11.1"
+    "node": "20.5.1"
     },
   "description": "",
   "main": "server.js",
