@@ -86,22 +86,22 @@ router.get('/dashboard', withAuth, async (req, res) => {
 router.get('/checklist/:id', withAuth, async (req, res) => {
   if (req.session.logged_in) {
     try {
-      const userData = await User.findByPk(req.session.user_id, {
-        attributes: { exclude: ['password'] },
-        include: [{ model: Event, EventItem }],
+      const dbEventData = await Event.findByPk(req.params.id, {
+        include: [
+          {
+            model: EventItem,
+            attributes: ['title', 'description', 'completed'],
+          },
+        ],
       });
 
-      const user = userData.get({ plain: true });
-
-      res.render('checklist', {
-        ...user,
-        logged_in: true,
-      });
+      const checklist = dbEventData.get({ plain: true });
+      // Send over the 'loggedIn' session variable to the 'gallery' template
+      res.render('checklist', { checklist, loggedIn: req.session.loggedIn });
     } catch (err) {
+      console.log(err);
       res.status(500).json(err);
     }
-
-    return;
   }
   res.render('signIn');
 });
