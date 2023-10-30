@@ -102,6 +102,7 @@ router.get('/checklist/:id', withAuth, async (req, res) => {
       console.log(err);
       res.status(500).json(err);
     }
+    return;
   }
   res.render('signIn');
 });
