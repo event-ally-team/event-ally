@@ -1,12 +1,16 @@
 {
   "name": "event-ally",
   "version": "1.0.0",
+  "engines": {
+    "node": "12.11.1"
+    },
   "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "seed": "node seeds/seed.js"
+    "seed": "node seeds/seed.js",
+    "start": "node server.js"
+
   },
   "keywords": [],
   "author": "Event-Ally-Team",
@@ -25,6 +29,7 @@
     "moment": "^2.29.4",
     "mysql2": "^2.2.5",
     "sequelize": "^6.3.5"
+
   },
   "devDependencies": {
     "eslint": "^7.12.1",
