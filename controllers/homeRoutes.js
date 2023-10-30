@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Event, User, EventItem } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', (req, res) => {
+router.get('', (req, res) => {
   if (req.session.logged_in) {
     res.redirect('dashboard');
     return;
