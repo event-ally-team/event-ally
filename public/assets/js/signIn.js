@@ -18,7 +18,7 @@ const signInFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/dashboard');
     } else {
-      alert('Login failed');
+      alert('Sign in failed');
     }
   }
 };

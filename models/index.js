@@ -11,6 +11,8 @@ EventItem.belongsTo(User, { foreignKey: 'user_id' });
 
 Event.hasMany(EventItem, { foreignKey: 'event_id', onDelete: 'CASCADE' });
 
+
 EventItem.belongsTo(Event, { foreignKey: 'event_id' });
+
 
 module.exports = { User, Event, EventItem, DefaultEventItem };
